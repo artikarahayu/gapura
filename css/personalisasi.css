@@ -1,0 +1,326 @@
+.personal-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.personal-section h2 {
+    color: var(--primary-orange);
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.personal-options {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.option-card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    width: 300px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+}
+
+.option-card .icon {
+    font-size: 40px;
+    color: var(--primary-orange);
+    margin-bottom: 15px;
+}
+
+/* code baru bagian personalisasi */
+
+/* Main content container */
+main {
+    max-width: 960px;
+    margin: 20px auto 60px;
+    padding: 0 20px;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 20px;
+    border-bottom: 2px solid #4a4a4a;
+    padding-bottom: 4px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Card container style */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 30px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+    margin-bottom: 40px;
+}
+
+/* Profil grid */
+.profil-container {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 30px;
+}
+
+/* Profil form */
+form.profil-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #666;
+}
+
+form.profil-form input[type="text"],
+form.profil-form input[type="tel"],
+form.profil-form textarea {
+    width: 100%;
+    padding: 7px 10px;
+    border: 1.5px solid #DDD;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 18px;
+    font-family: inherit;
+    color: #444;
+    transition: 0.3s border-color ease-in-out;
+}
+
+form.profil-form input[type="text"]:focus,
+form.profil-form input[type="tel"]:focus,
+form.profil-form textarea:focus {
+    outline: none;
+    border-color: #ff8100;
+}
+
+form.profil-form textarea {
+    resize: vertical;
+    min-height: 68px;
+    max-height: 120px;
+    font-size: 13px;
+    color: #999999;
+    font-style: italic;
+}
+
+/* Warning / small note text */
+.note {
+    font-size: 11px;
+    color: #999;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+/* Profil photo side */
+.photo-section {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    font-weight: 600;
+}
+
+.photo-section img {
+    width: 150px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgb(0 0 0 / 0.07);
+    margin: 13px 0 17px;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 600;
+    font-family: inherit;
+    border: none;
+    transition: background-color 0.25s ease;
+}
+
+.btn-primary {
+    background-color: #ff8100;
+    color: white;
+    padding: 9px 20px;
+    font-size: 14px;
+    float: right;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #e47100;
+}
+
+.btn-secondary {
+    background-color: white;
+    border: 1.1px solid #ccc;
+    color: #555;
+    padding: 7px 22px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    margin-right: 10px;
+}
+
+.btn-danger {
+    background-color: white;
+    border: 1.1px solid #FF523B;
+    color: #FF523B;
+    padding: 7px 22px;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.btn-secondary:hover {
+    background-color: #fafafa;
+}
+
+.btn-danger:hover {
+    background-color: #FFEEE9;
+}
+
+/* Input textcode and buttons in Telegram Chat ID form var */
+.chatid-input-group {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+input.code-input {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1.5px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #444;
+}
+
+button.btn-test {
+    background-color: #3ca4f5;
+    color: white;
+    padding: 9px 24px;
+    font-weight: 600;
+    border-radius: 0;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+button.btn-test:hover {
+    background-color: #1274db;
+}
+
+button.btn-connect {
+    background-color: #53b46b;
+    color: white;
+    font-weight: 600;
+    border-radius: 0 5px 5px 0;
+    padding: 9px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+button.btn-connect:hover {
+    background-color: #2d793b;
+}
+
+/* Telegram Chat ID Text */
+.chatid-description {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+/* Bold & italic styles in content */
+strong {
+    font-weight: 700;
+}
+
+em {
+    font-style: italic;
+    color: #444;
+    font-size: 13px;
+}
+
+/* Instructions list */
+ol {
+    padding-left: 18px;
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #444;
+}
+
+ol li {
+    margin-bottom: 8px;
+}
+
+strong.green {
+    color: #369B11;
+    font-weight: 600;
+}
+
+/* Telegram QR image */
+.telegram-qr {
+    max-width: 100%;
+    margin: 15px 0 0;
+    display: block;
+}
+
+/* Telegram bot username caption */
+.telegram-bot-name {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    color: #777;
+    margin-top: 4px;
+    font-family: monospace;
+    user-select: none;
+}
+
+/* Generate QR button */
+.generate-qr-btn {
+    background-color: #53b46b;
+    color: white;
+    font-weight: 600;
+    font-family: inherit;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 7px;
+    margin-top: 25px;
+    margin-bottom: 14px;
+    cursor: pointer;
+    word-spacing: 2px;
+    font-size: 14px;
+    display: inline-block;
+    transition: background-color 0.2s ease;
+}
+
+.generate-qr-btn:hover {
+    background-color: #3f8c58;
+}
+
+/* QR Code container */
+.qr-code-container {
+    text-align: center;
+    user-select: none;
+}
+
+.qr-code-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #646464;
+    font-weight: 600;
+    line-height: 1.3;
+}

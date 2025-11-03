@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalisasi - GAPURA EMAS</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/personalisasi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="assets/gapura.png" alt="Logo Gapura Emas" class="logo-image">
+            <h1><span class="orange">GAPURA</span>EMAS</h1>
+        </div>
+        <nav>
+            <a href="beranda.html">Beranda</a>
+            <span class="nav-separator">|</span>
+            <a href="personalisasi.html" class="active">Personalisasi</a>
+            <span class="nav-separator">|</span>
+            <a href="keamanan.html">Keamanan</a>
+            <span class="nav-separator">|</span>
+            <a href="riwayat.html">Riwayat</a>
+        </nav>
+        <div class="user-info">
+            <i class="fas fa-bell notification-icon"></i>
+            <div class="user-details">
+                <span>Nama Pengguna</span>
+                <p class="role">Role Pengguna</p>
+            </div>
+            <i class="fas fa-user-circle user-icon"></i>
+        </div>
+    </header>
+
+    <!-- Konten Utama -->
+    <main>
+        <h2>Personalisasi</h2>
+    
+        <section class="card" aria-label="Profil">
+            <div style="font-weight:700; font-size:16px; margin-bottom:10px;">Profil</div>
+            <hr />
+            <div class="profil-container">
+                <form class="profil-form" action="#" method="post" aria-label="Form profil pengguna" novalidate>
+                    <label for="namaLengkap">Nama Lengkap</label>
+                    <input type="text" id="namaLengkap" name="namaLengkap" aria-describedby="namaDesc" />
+    
+                    <label for="nik">NIK/No.KTP</label>
+                    <input type="text" id="nik" name="nik" />
+    
+                    <label for="noHp">No HP</label>
+                    <input type="tel" id="noHp" name="noHp" />
+                    <p class="note" id="namaDesc">
+                        Nomor HP dapat diubah melalui menu keamanan bagian "Email & Kontak".
+                        (<em>anda mungkin <strong>diminta</strong> untuk verifikasi whatsapp ulang</em>)
+                    </p>
+    
+                    <label for="noHpKuasa">No HP Kuasa</label>
+                    <input type="tel" id="noHpKuasa" name="noHpKuasa" />
+    
+                    <label for="alamatLengkap">Alamat Lengkap</label>
+                    <input type="text" id="alamatLengkap" name="alamatLengkap" />
+    
+                    <textarea placeholder="Jalan, No, Rumah, RT/RW, Dusun" aria-label="Alamat lengkap tambahan"></textarea>
+                </form>
+    
+                <div class="photo-section" aria-label="Foto profil">
+                    <div>Foto Profil</div>
+                    <img src="https://i.ibb.co/XDb5s5s/woman-profile.jpg" alt="Foto profil pengguna" />
+                    <div>
+                        <button class="btn-secondary" type="button">Pilih Foto</button>
+                        <button class="btn-danger" type="button">Hapus Foto</button>
+                    </div>
+                    <button class="btn-primary" type="submit" form="profil-form">Simpan</button>
+                </div>
+            </div>
+        </section>
+    
+        <section class="card" aria-label="Telegram Chat ID">
+            <div style="font-weight:700; font-size:16px; margin-bottom:15px;">Telegram Chat ID</div>
+            <hr />
+            <div class="chatid-description" tabindex="0">
+                Untuk dapat menerima notifikasi via Telegram, silahkan koneksikan telegram anda dengan mengikuti salah satu
+                dari 2 instruksi berikut:
+            </div>
+    
+            <div style="margin-bottom: 20px;">
+                <strong>Cara 1</strong> <a href="#">(Tonton Video Tutorial )</a>
+                <ol>
+                    <li>
+                        Install aplikasi Telegram di HP anda. <a href="#">(Klik disini apabila anda tidak bisa install,
+                            login, atau membuat akun telegram)</a>
+                    </li>
+                    <li>
+                        Buka Telegram, cari bot dengan username <strong><code>@PastiPaskabBot</code></strong> atau klik <a
+                            href="#">Link Berikut</a> atau scan QR code berikut dengan aplikasi telegram anda.
+                        <div>
+                            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111677.png" alt="Telegram QR Code"
+                                class="telegram-qr" />
+                            <div class="telegram-bot-name">@PASTIPASKABBOT</div>
+                        </div>
+                    </li>
+                    <li>Klik <code>/start</code></li>
+                    <li>Ketikkan <q>daftar</q>, lalu anda akan mendapatkan pesan yg berisi <strong>Chat ID</strong> anda
+                    </li>
+                    <li>Masukkan <strong>Chat ID</strong> yang anda dapatkan pada input dibawah ini.</li>
+                    <li>Klik tombol "Uji Coba" untuk mengirimkan pesan uji coba ke telegram anda.</li>
+                    <li>Jika pesan berhasil terkirim, klik tombol "Hubungkan Telegram" untuk menyimpan Chat ID anda.</li>
+                </ol>
+    
+                <div class="chatid-input-group" style="margin-top:12px;">
+                    <input type="text" aria-label="Masukkan Code" placeholder="Masukkan Code" />
+                    <button class="btn-test" type="button">Uji Coba</button>
+                    <button class="btn-connect" type="button">Hubungkan Telegram</button>
+                </div>
+            </div>
+    
+            <div style="margin-top: 20px;">
+                <strong>Cara 2</strong>
+                <ol>
+                    <li>Install aplikasi Telegram di HP anda.</li>
+                    <li>Klik tombol "Generate QR Code" disamping.</li>
+                    <li>Scan QR Code yang muncul dengan QR scanner di HP anda yg terinstall telegram.</li>
+                    <li>Anda akan dialihkan ke aplikasi telegram (klik tombol "START BOT" apabila muncul).</li>
+                    <li>Apabila berhasil, anda akan mendapatkan pesan yang menginformasikan tentang akun anda.</li>
+                    <li>Refresh halaman ini. Telegram anda sudah terhubung ke akun gapura emas anda dan selanjutnya anda
+                        akan menerima notifikasi aplikasi melalui telegram.</li>
+                </ol>
+            </div>
+    
+            <button class="generate-qr-btn" type="button">Generete QR Code</button>
+    
+            <div class="qr-code-container">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=GapuraEmasTelegram"
+                    alt="QR Code Telegram" />
+                <div class="qr-code-caption">
+                    QR Code berlaku hingga<br />
+                    Rabu, 22 Oktober 2025<br />
+                    16:42:5 WIB
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p class="copyright">COPYRIGHT © 2022–2025 Diskominfo Kabupaten Pasuruan</p>
+            <p class="gov-text">Pemerintah Daerah Kabupaten Pasuruan</p>
+        </div>
+    </footer>
+</body>
+
+</html>

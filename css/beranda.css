@@ -1,0 +1,380 @@
+/* HERO SECTION */
+.hero {
+    background-color: #ffffff;
+    padding: 40px 0 40px;
+    position: relative;
+    /* DIHAPUS: Hapus baris ini agar lingkaran bisa "keluar" */
+    /* overflow: hidden; */
+}
+
+.hero-container {
+    display: flex;
+    /* DIUBAH: Ganti 'center' menjadi 'flex-start' agar konten naik ke atas */
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    /* TAMBAHKAN: Pastikan semua konten (teks & logo) ada di atas lingkaran */
+    z-index: 2;
+}
+
+.hero-text {
+    flex: 1;
+    z-index: 2;
+}
+
+.hero-text h2 {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.hero-text .orange {
+    color: var(--primary-orange);
+}
+
+.hero-text p {
+    font-size: 22px;
+    color: #555;
+    max-width: 520px;
+    line-height: 1.6;
+}
+
+/* Bagian kanan (logo + lingkaran oranye) */
+
+.orange-circle {
+    position: absolute;
+    /* DIUBAH: Disesuaikan agar pas dengan ukuran baru */
+    right: -200px;
+    /* DIUBAH: Dinaikkan lagi (lebih negatif) */
+    top: -150px;
+    /* DIUBAH: Ukuran diperkecil */
+    width: 550px;
+    height: 550px;
+    background-color: var(--primary-orange);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.hero-image .logo-pasuruan {
+    position: relative;
+    z-index: 2;
+    /* DIUBAH: Sesuaikan ukuran seperti di gambar */
+    right: -40px;
+    width: 220px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+    /* TAMBAHKAN: Dorong logo sedikit ke bawah agar pas di dalam lingkaran */
+    margin-top: 10px;
+}
+
+/* Responsif */
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h2 {
+        font-size: 48px;
+    }
+
+    .orange-circle {
+        position: relative;
+        right: auto;
+        top: auto;
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    .hero-image .logo-pasuruan {
+        width: 220px;
+    }
+}
+
+/* BANNER */
+.banner-section {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+
+    position: relative;
+    /* DIUBAH: Jadikan '3' agar di atas lingkaran (1) dan konten (2) */
+    z-index: 3;
+    /* DIUBAH: Naikkan lagi agar lebih tumpang tindih */
+    margin-top: -30px;
+}
+
+.banner img {
+    width: 380px;
+    /* Dihapus dari permintaan sebelumnya */
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.app-section {
+    padding-top: 40px;
+}
+
+.app-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.app-tabs .tab-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    margin-right: 10px;
+    background-color: var(--white);
+    color: var(--text-grey);
+}
+
+.app-tabs .tab-link.active {
+    background-color: var(--primary-orange);
+    color: var(--white);
+}
+
+.search-bar {
+    position: relative;
+}
+
+.search-bar input {
+    font-family: 'Poppins', sans-serif;
+    width: 300px;
+    padding: 10px 40px 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.search-bar .fa-search {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-grey);
+}
+
+/* Grid Aplikasi */
+.app-grid {
+    display: grid;
+    /* 3 kolom di desktop */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.app-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Logo dan teks sejajar di atas */
+    margin-bottom: 20px;
+}
+
+.app-info {
+    flex-grow: 1;
+    margin-right: 15px;
+}
+
+.app-info h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.app-info p {
+    font-size: 0.9rem;
+    color: var(--text-grey);
+}
+
+.app-logo-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    object-fit: cover;
+    align-self: flex-start;
+}
+
+.app-status {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 6px 14px;
+    border-radius: 8px;
+    text-align: center;
+    margin-left: auto;
+    /* Mendorong tombol ke kanan */
+    width: fit-content;
+    display: block;
+}
+
+.app-status.status-soon {
+    background-color: #f0f0f0;
+    color: var(--text-grey);
+}
+
+.app-status.status-open {
+    background-color: #FFF7F0;
+    /* Orange muda */
+    color: var(--primary-orange);
+}
+
+/* ======== RESPONSIVE ======== */
+
+/* Tablet (2 kolom) */
+@media (max-width: 992px) {
+    .nav-links {
+        display: none;
+        /* Sembunyikan nav link di tablet */
+    }
+
+    .hero-image-wrapper {
+        width: 60%;
+    }
+
+    .app-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile (2 kolom) */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 40px;
+    }
+
+    .hero-text {
+        padding-right: 0;
+    }
+
+    .hero-image-wrapper {
+        position: relative;
+        transform: translateX(0);
+        width: 100%;
+        height: 200px;
+        margin-top: 30px;
+        border-radius: 0;
+        /* Bentuk kurva di atas */
+        border-top-left-radius: 100px;
+        border-top-right-radius: 100px;
+    }
+
+    .hero-image-wrapper img {
+        transform: translateX(0);
+        max-width: 120px;
+    }
+
+    .app-navigation {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .app-tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
+    /* Grid tetap 2 kolom di mobile sesuai permintaan */
+    .app-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .app-card {
+        padding: 15px;
+    }
+
+    .app-info h3 {
+        font-size: 1rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+/* Mobile Kecil (1 kolom) - Opsi tambahan untuk usability */
+@media (max-width: 480px) {
+    .app-grid {
+        grid-template-columns: 1fr;
+        /* Jadi 1 kolom di layar sangat kecil */
+    }
+}
+
+/* ==== Highlight untuk SMART Perizinan ==== */
+.highlight-app {
+    grid-column: span 2;
+    /* Buat kartu lebih lebar dari lainnya */
+    background-color: #fff7f0;
+    border: 2px solid var(--primary-orange);
+    transform: scale(1.02);
+}
+
+.highlight-app:hover {
+    transform: scale(1.04);
+}
+
+/* Logo lebih besar */
+.app-logo-large {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* Supaya teks sejajar dengan logo besar */
+.highlight-app .card-main {
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Responsif */
+@media (max-width: 992px) {
+    .highlight-app {
+        grid-column: span 1;
+        /* Kembali normal di tablet */
+    }
+
+    .app-logo-large {
+        width: 80px;
+        height: 80px;
+    }
+}

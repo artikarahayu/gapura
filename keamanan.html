@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keamanan - GAPURA EMAS</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/keamanan.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="assets/gapura.png" alt="Logo Gapura Emas" class="logo-image">
+            <h1><span class="orange">GAPURA</span>EMAS</h1>
+        </div>
+        <nav>
+            <a href="beranda.html">Beranda</a>
+            <span class="nav-separator">|</span>
+            <a href="personalisasi.html">Personalisasi</a>
+            <span class="nav-separator">|</span>
+            <a href="keamanan.html" class="active">Keamanan</a>
+            <span class="nav-separator">|</span>
+            <a href="riwayat.html">Riwayat</a>
+        </nav>
+        <div class="user-info">
+            <i class="fas fa-bell notification-icon"></i>
+            <div class="user-details">
+                <span>Nama Pengguna</span>
+                <p class="role">Role Pengguna</p>
+            </div>
+            <i class="fas fa-user-circle user-icon"></i>
+        </div>
+    </header>
+
+    <main role="main" aria-label="Keamanan Akun">
+        <h1>Keamanan Akun</h1>
+        <hr />
+    
+        <div class="tabs" role="tablist" aria-label="Menu tab keamanan akun">
+            <button class="tab active" role="tab" aria-selected="true" aria-controls="panel-akun" id="tab-akun"
+                tabindex="0">Akun</button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-2fa" id="tab-2fa"
+                tabindex="-1">2FA</button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-sesi" id="tab-sesi" tabindex="-1">Sesi
+                Aktif</button>
+        </div>
+    
+        <section id="panel-akun" role="tabpanel" aria-labelledby="tab-akun">
+            <div class="card" aria-label="Ubah Sandi">
+                <div style="font-weight:700; font-size:16px; margin-bottom:10px;">Ubah Sandi</div>
+                <hr />
+                <form>
+                    <div class="field-group">
+                        <label for="old-password">Password Lama</label>
+                        <input type="password" id="old-password" placeholder="Masukkan Password Lama"
+                            autocomplete="current-password" />
+                    </div>
+                    <div class="field-group">
+                        <label for="new-password">Password Baru</label>
+                        <input type="password" id="new-password" autocomplete="new-password" />
+                    </div>
+                    <div class="field-group">
+                        <label for="repeat-password">Password Baru (ulangi)</label>
+                        <input type="password" id="repeat-password" autocomplete="new-password" />
+                    </div>
+                    <button type="submit" class="btn-simpan">Simpan</button>
+                </form>
+            </div>
+
+            <div class="card" aria-label="Email dan Nomor HP">
+                <div style="font-weight:700; font-size:16px; margin-bottom:10px;">Email & Nomor HP</div>
+                <hr />
+                <form>
+                    <div class="field-group">
+                        <label>Email</label>
+                        <div style="flex:1; font-size:14px; color: var(--gray-text-muted); user-select: text;">
+                            email@gmail.com
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label for="phone">Nomor HP</label>
+                        <input type="text" id="phone" placeholder="Nomor HP Baru" />
+                        <button type="button" class="btn-kirim-kode">Kirim Kode</button>
+                    </div>
+                    <div class="field-group">
+                        <label for="otp">Masukkan kode OTP</label>
+                        <input type="text" id="otp" />
+                    </div>
+                    <button type="submit" class="btn-simpan">Simpan</button>
+                </form>
+            </div>
+        </section>
+    
+        <div class="card" aria-label="Akun yang terhubung">
+            <div style="font-weight:700; font-size:16px; margin-bottom:10px;">Akun yang terhubung</div>
+            <hr />
+            <p class="info-text">Layanan yang anda gunakan untuk masuk GAPURAEMAS</p>
+            <div class="account-item">
+                <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=64&amp;q=80"
+                    alt="Foto profil Google" />
+                <div class="account-info">
+                    <strong>Google</strong>
+                    <small>aba123@gmail.com</small>
+                </div>
+                <button class="btn-putus" type="button">Putuskan Tautan</button>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container footer-content">
+            <p class="copyright">COPYRIGHT © 2022–2025 Diskominfo Kabupaten Pasuruan</p>
+            <p class="gov-text">Pemerintah Daerah Kabupaten Pasuruan</p>
+        </div>
+    </footer>
+</body>
+
+</html>

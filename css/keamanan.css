@@ -1,0 +1,353 @@
+.security-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.security-section h2 {
+    color: var(--primary-orange);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.security-options {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.security-card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    width: 300px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.security-card:hover {
+    transform: translateY(-5px);
+}
+
+.security-card .icon {
+    font-size: 40px;
+    color: var(--primary-orange);
+    margin-bottom: 15px;
+}
+
+/* code baru keamanan */
+main {
+    padding: var(--body-padding);
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--gray-border);
+    margin-bottom: 24px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center; /* center the group */
+    align-items: center;
+    gap: 12px;
+    margin: 0 auto 32px auto; /* center horizontally */
+    user-select: none;
+}
+
+/* Make each tab look similar to header nav links */
+.tab {
+    display: inline-block;
+    padding: 6px 14px;
+    text-decoration: none;
+    color: var(--text-grey);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.tab:hover {
+    color: var(--primary-orange);
+    background-color: transparent;
+}
+
+/* Active tab matches header active style */
+.tab.active {
+    background-color: var(--primary-orange);
+    color: #fff;
+}
+
+/* Card wrapper */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 30px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+    margin-bottom: 40px;
+}
+
+.card h2 {
+    margin: 0 0 24px 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+}
+
+.card div[style*="font-weight:700"] {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.card hr {
+    border: none;
+    border-top: 1px solid #4a4a4a;
+    margin-bottom: 20px;
+}
+
+/* Forms */
+form {
+    max-width: 600px;
+}
+
+.field-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 12px;
+}
+
+label {
+    flex: 0 0 130px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #555555;
+    user-select: none;
+}
+
+input[type="text"],
+input[type="password"] {
+    flex: 1;
+    border: 1px solid var(--gray-border);
+    border-radius: 12px;
+    font-size: 14px;
+    padding: 11px 16px;
+    outline-offset: 2px;
+    outline-color: var(--orange);
+    transition: border-color 0.2s ease;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+input:focus {
+    border-color: var(--orange);
+}
+
+/* Button Kirim Kode */
+.btn-kirim-kode {
+    flex: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1.5px solid var(--blue);
+    color: var(--blue);
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-kirim-kode:hover {
+    background-color: var(--blue);
+    color: white;
+}
+
+/* Button Simpan */
+.btn-simpan {
+    background-color: var(--orange);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    float: right;
+    transition: background-color 0.2s ease;
+}
+
+.btn-simpan:hover {
+    background-color: #e76600;
+}
+
+/* Connected account section */
+.connected-account {
+    max-width: 700px;
+    border: 1px solid var(--gray-border);
+    border-radius: 12px;
+    padding: 24px 32px;
+}
+
+.connected-account h3 {
+    margin: 0 0 20px 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+}
+
+.connected-account .info-text {
+    font-size: 14px;
+    color: var(--gray-text-muted);
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.card .info-text {
+    font-size: 14px;
+    color: var(--gray-text-muted);
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.account-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 530px;
+    margin: 0 auto;
+    border: 1px solid #C0C0C0;
+    border-radius: 8px;
+    padding: 12px 28px;
+}
+
+.account-item img {
+    width: 52px;
+    height: 52px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.account-info {
+    flex: 1;
+}
+
+.account-info strong {
+    font-size: 17px;
+    font-weight: 700;
+    color: #222222;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.account-info small {
+    font-size: 13px;
+    color: var(--gray-text-muted);
+}
+
+.btn-putus {
+    background-color: #FF523B;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.btn-putus:hover {
+    background-color: #e03e2a;
+}
+
+/* Footer */
+footer {
+    padding: 16px 60px;
+    margin-top: 80px;
+    font-size: 12px;
+    color: #565656;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+footer a {
+    color: #007312;
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 0 20px;
+    }
+
+    main {
+        padding: 40px 24px;
+    }
+
+    footer {
+        padding: 16px 24px;
+        flex-direction: column;
+        gap: 6px;
+        font-size: 11px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    .field-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    label {
+        width: 100%;
+        margin-bottom: 6px;
+    }
+
+    input,
+    .btn-kirim-kode {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .btn-kirim-kode {
+        padding: 9px 0;
+        border-radius: 12px;
+    }
+
+    .btn-simpan {
+        width: 100%;
+        float: none;
+        margin-top: 12px;
+    }
+
+        .account-item {
+            flex-direction: column;
+            max-width: 100%;
+            text-align: center;
+            gap: 12px;
+        }
+        .account-info {
+            margin-bottom: 8px;
+        }
+    }

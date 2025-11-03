@@ -1,0 +1,259 @@
+:root {
+    --primary-orange: #f15a24;
+    --bg-light: #f9f9f9;
+    --text-dark: #333333;
+    --text-grey: #777777;
+    --white: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    flex-shrink: 0;
+}
+
+.navbar nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.navbar .user-info {
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 35px;
+}
+
+.logo h1 {
+    font-weight: 700;
+    color: #333;
+    font-size: 1.25rem;
+}
+
+.orange {
+    color: #f15a24;
+}
+
+.black {
+    color: #000;
+}
+
+nav a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: var(--text-grey);
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: transparent;
+    transition: 0.3s;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+.nav-separator {
+    color: var(--text-grey);
+    font-weight: 500;
+    margin: 0 2px;
+    font-size: 0.9rem;
+}
+
+nav a:hover {
+    background-color: transparent;
+    color: var(--primary-orange);
+}
+
+nav a.active {
+    background-color: #f15a24;
+    color: #fff;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.notification-icon {
+    font-size: 20px;
+    color: var(--text-grey);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.notification-icon:hover {
+    color: var(--primary-orange);
+}
+
+.user-icon {
+    font-size: 28px;
+    color: var(--primary-orange);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.user-icon:hover {
+    color: #d13a0a;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.user-details .role {
+    font-size: 0.75rem;
+    color: gray;
+    margin: 0;
+}
+
+/* ======== 5. FOOTER ======== */
+footer {
+    background-color: var(--white);
+    padding: 25px 0;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-grey);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* RESPONSIVE DASAR (untuk footer) */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        padding: 0 30px;
+    }
+}
+
+/* RESPONSIVE UNTUK NAVBAR */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 15px;
+        flex-wrap: wrap;
+    }
+
+    .navbar nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        padding-right: 0;
+        margin-top: 10px;
+    }
+
+    .user-info {
+        order: 2;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .logo h1 {
+        font-size: 1rem;
+    }
+
+    .logo img {
+        width: 30px;
+    }
+
+    .user-details {
+        display: none; /* Sembunyikan detail user di mobile untuk ruang */
+    }
+
+    .notification-icon,
+    .user-icon {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 8px 10px;
+    }
+
+    .navbar nav a {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+        margin: 0 2px;
+    }
+
+    .nav-separator {
+        font-size: 0.8rem;
+        margin: 0 1px;
+    }
+
+    .logo h1 {
+        font-size: 0.9rem;
+    }
+
+    .logo img {
+        width: 25px;
+    }
+
+    .user-info {
+        gap: 10px;
+    }
+
+    .notification-icon,
+    .user-icon {
+        font-size: 20px;
+    }
+}

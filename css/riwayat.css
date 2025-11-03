@@ -1,0 +1,43 @@
+.history-section {
+    padding: 60px 0;
+}
+
+.history-section h2 {
+    text-align: center;
+    color: var(--primary-orange);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.history-list {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 15px 20px;
+    box-shadow: var(--shadow);
+}
+
+.history-item .icon {
+    font-size: 24px;
+    color: var(--primary-orange);
+}
+
+.history-item h4 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.history-item p {
+    color: var(--text-grey);
+    font-size: 0.85rem;
+}
