@@ -23,6 +23,18 @@ body {
     line-height: 1.6;
 }
 
+/* Prevent horizontal scrolling caused by overflowing children */
+html, body {
+    overflow-x: hidden;
+}
+
+/* Ensure images, svgs and iframes don't overflow their containers */
+img, svg, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
