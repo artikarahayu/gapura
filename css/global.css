@@ -1,3 +1,5 @@
+/* --- Global Stylesheet (Final Fixed Navbar + Mobile Bottom Nav) --- */
+
 :root {
     --primary-orange: #f15a24;
     --bg-light: #f9f9f9;
@@ -18,18 +20,19 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-light);
+    background-color: var(--white);
     color: var(--text-dark);
     line-height: 1.6;
 }
 
-/* Prevent horizontal scrolling caused by overflowing children */
-html, body {
+html,
+body {
     overflow-x: hidden;
 }
 
-/* Ensure images, svgs and iframes don't overflow their containers */
-img, svg, iframe {
+img,
+svg,
+iframe {
     max-width: 100%;
     height: auto;
     display: block;
@@ -41,22 +44,23 @@ img, svg, iframe {
     padding: 0 30px;
 }
 
-/* NAVBAR */
+/* ================================================
+   1. NAVBAR ATAS (FIXED) - DIPERBESAR
+   ================================================ */
 .navbar {
     display: flex;
     align-items: center;
-    padding: 10px 30px;
-    background: #fff;
+    padding: 15px 30px;
+    /* DIUBAH: dari 10px */
+    background: var(--white);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
     z-index: 1000;
 }
 
-.navbar .logo {
-    flex-shrink: 0;
-}
-
+/* Navigasi Teks (Desktop) */
 .navbar nav {
     flex: 1;
     display: flex;
@@ -65,46 +69,18 @@ img, svg, iframe {
     padding-right: 20px;
 }
 
-.navbar .user-info {
-    flex-shrink: 0;
-    margin-left: auto;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo img {
-    width: 35px;
-}
-
-.logo h1 {
-    font-weight: 700;
-    color: #333;
-    font-size: 1.25rem;
-}
-
-.orange {
-    color: #f15a24;
-}
-
-.black {
-    color: #000;
-}
-
 nav a {
     margin: 0 5px;
     text-decoration: none;
     color: var(--text-grey);
     font-weight: 500;
-    padding: 6px 12px;
+    padding: 8px 14px;
+    /* DIUBAH: padding diperbesar */
     border-radius: 6px;
     background-color: transparent;
-    transition: 0.3s;
     display: inline-block;
     font-size: 0.9rem;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-separator {
@@ -117,11 +93,49 @@ nav a {
 nav a:hover {
     background-color: transparent;
     color: var(--primary-orange);
+    transform: translateY(-2px);
 }
 
 nav a.active {
-    background-color: #f15a24;
-    color: #fff;
+    background-color: var(--primary-orange);
+    color: var(--white);
+    transform: translateY(0);
+}
+
+nav a.active:hover {
+    background-color: #d13a0a;
+}
+
+/* Logo (Kiri) */
+.navbar .logo {
+    flex-shrink: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 50px;
+    /* DIUBAH: dari 35px */
+}
+
+.logo h1 {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1.25rem;
+}
+
+.logo .orange {
+    color: var(--primary-orange);
+}
+
+/* Info User (Kanan) */
+.navbar .user-info {
+    flex-shrink: 0;
+    margin-left: auto;
 }
 
 .user-info {
@@ -133,26 +147,28 @@ nav a.active {
     margin-right: 0;
 }
 
-.notification-icon {
+.notification-icon,
+.user-icon {
     font-size: 20px;
     color: var(--text-grey);
     cursor: pointer;
-    transition: color 0.3s;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.user-icon {
+    font-size: 30px;
+    /* DIUBAH: dari 28px */
+    color: var(--primary-orange);
 }
 
 .notification-icon:hover {
     color: var(--primary-orange);
-}
-
-.user-icon {
-    font-size: 28px;
-    color: var(--primary-orange);
-    cursor: pointer;
-    transition: color 0.3s;
+    transform: scale(1.1) translateY(-1px);
 }
 
 .user-icon:hover {
     color: #d13a0a;
+    transform: scale(1.1);
 }
 
 .user-details {
@@ -165,11 +181,13 @@ nav a.active {
 
 .user-details .role {
     font-size: 0.75rem;
-    color: gray;
+    color: var(--text-grey);
     margin: 0;
 }
 
-/* ======== 5. FOOTER ======== */
+/* ================================================
+   2. FOOTER
+   ================================================ */
 footer {
     background-color: var(--white);
     padding: 25px 0;
@@ -187,29 +205,119 @@ footer {
     padding: 0 30px;
 }
 
-/* RESPONSIVE DASAR (untuk footer) */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-        padding: 0 30px;
+/* ================================================
+   3. KONTEN UTAMA & ANIMASI
+   ================================================ */
+main {
+    /* DIUBAH: Disesuaikan untuk navbar atas yg lebih besar */
+    padding-top: 85px;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* RESPONSIVE UNTUK NAVBAR */
+/* ================================================
+   4. NAVBAR BAWAH (MOBILE) - DIPERKECIL
+   ================================================ */
+/* ================================================
+   4. NAVBAR BAWAH (MOBILE) - UKURAN KONSISTEN
+   ================================================ */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+
+    /* Ukuran dan Posisi */
+    bottom: 10px;
+    left: 5px;
+    right: 5px;
+    width: auto;
+
+    background-color: var(--white);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 3px;
+
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Gaya Tombol (Semua Tombol) */
+.mobile-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    flex-basis: 0;
+    flex-grow: 1;
+    min-height: 45px;
+
+    padding: 4px 6px;
+
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Teks (Semua Tombol) - Ukuran Tetap */
+.mobile-nav a span {
+    font-size: 0.75rem;
+    /* DIUBAH: Ukuran tetap */
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* Ikon (Semua Tombol) - Ukuran Tetap */
+.mobile-nav a i {
+    font-size: 1.2rem;
+    /* DIUBAH: Ukuran tetap */
+    margin-bottom: 0;
+}
+
+/* Gaya Tombol Inaktif (Default) */
+.mobile-nav a:not(.active) {
+    color: var(--text-grey);
+    background-color: transparent;
+}
+
+.mobile-nav a:not(.active):hover {
+    color: var(--text-dark);
+}
+
+/* Gaya Tombol Aktif (Hanya Ubah Warna) */
+.mobile-nav a.active {
+    background-color: var(--primary-orange);
+    color: var(--white);
+}
+
+
+/* ================================================
+   5. RESPONSIVE
+   ================================================ */
+
+/* Tablet ( < 768px ) */
 @media (max-width: 768px) {
+
+    /* -- Navbar Atas -- */
     .navbar {
         padding: 10px 15px;
-        flex-wrap: wrap;
+        /* Kembali ke padding mobile */
+        flex-wrap: nowrap;
     }
 
     .navbar nav {
-        order: 3;
-        width: 100%;
-        justify-content: center;
-        padding-right: 0;
-        margin-top: 10px;
+        display: none;
     }
 
     .user-info {
@@ -219,45 +327,56 @@ footer {
     }
 
     .logo h1 {
-        font-size: 1rem;
+        display: none;
     }
 
     .logo img {
-        width: 30px;
+        width: 35px;
+        /* Ukuran logo mobile */
     }
 
     .user-details {
-        display: none; /* Sembunyikan detail user di mobile untuk ruang */
+        display: none;
     }
 
     .notification-icon,
     .user-icon {
         font-size: 24px;
     }
+
+    /* -- Footer -- */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    /* -- Pendorong Konten Atas -- */
+    main {
+        padding-top: 70px;
+        /* Kembali ke 70px (karena navbar atas mobile tidak berubah) */
+    }
+
+    /* -- Pendorong Konten Bawah (untuk mobile nav) -- */
+    body {
+        padding-bottom: 80px;
+        /* DIUBAH: Disesuaikan untuk nav yg lebih kecil */
+    }
+
+    /* -- Tampilkan Navbar Bawah -- */
+    .mobile-nav {
+        display: flex;
+    }
 }
 
+/* Mobile ( < 480px ) */
 @media (max-width: 480px) {
     .navbar {
         padding: 8px 10px;
     }
 
-    .navbar nav a {
-        font-size: 0.8rem;
-        padding: 5px 8px;
-        margin: 0 2px;
-    }
-
-    .nav-separator {
-        font-size: 0.8rem;
-        margin: 0 1px;
-    }
-
-    .logo h1 {
-        font-size: 0.9rem;
-    }
-
     .logo img {
-        width: 25px;
+        width: 30px;
     }
 
     .user-info {
@@ -267,5 +386,21 @@ footer {
     .notification-icon,
     .user-icon {
         font-size: 20px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    /* -- Pendorong Konten Atas -- */
+    main {
+        padding-top: 60px;
+        /* Tetap 60px */
+    }
+
+    /* -- Pendorong Konten Bawah -- */
+    body {
+        padding-bottom: 70px;
+        /* DIUBAH: Disesuaikan untuk nav yg lebih kecil */
     }
 }

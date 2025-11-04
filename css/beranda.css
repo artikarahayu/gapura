@@ -1,32 +1,36 @@
-/* HERO SECTION */
+/* --- CSS Khusus untuk Halaman Beranda (beranda.html) --- */
+
+/* ================================================
+   1. HERO SECTION (Selamat Datang)
+   ================================================ */
 .hero {
-    background-color: #ffffff;
+    background-color: var(--white);
     padding: 40px 0 40px;
     position: relative;
-    /* DIHAPUS: Hapus baris ini agar lingkaran bisa "keluar" */
-    /* overflow: hidden; */
+
+    /* Mendorong konten ke bawah navbar desktop */
+    padding-top: 100px;
 }
 
 .hero-container {
     display: flex;
-    /* DIUBAH: Ganti 'center' menjadi 'flex-start' agar konten naik ke atas */
     align-items: flex-start;
     justify-content: space-between;
     position: relative;
-    /* TAMBAHKAN: Pastikan semua konten (teks & logo) ada di atas lingkaran */
     z-index: 2;
 }
 
 .hero-text {
     flex: 1;
     z-index: 2;
+    /* Animasi fade-in dari global.css */
 }
 
 .hero-text h2 {
     font-size: 64px;
     font-weight: 700;
     margin-bottom: 20px;
-    color: #333;
+    color: var(--text-dark);
 }
 
 .hero-text .orange {
@@ -40,37 +44,298 @@
     line-height: 1.6;
 }
 
-/* Bagian kanan (logo + lingkaran oranye) */
-
+/* Dekorasi Lingkaran Oranye & Logo */
 .orange-circle {
     position: absolute;
-    /* DIUBAH: Disesuaikan agar pas dengan ukuran baru */
     right: -200px;
-    /* DIUBAH: Dinaikkan lagi (lebih negatif) */
     top: -150px;
-    /* DIUBAH: Ukuran diperkecil */
     width: 550px;
     height: 550px;
     background-color: var(--primary-orange);
     border-radius: 50%;
     z-index: 1;
+    /* Di belakang konten hero */
 }
 
 .hero-image .logo-pasuruan {
     position: relative;
     z-index: 2;
-    /* DIUBAH: Sesuaikan ukuran seperti di gambar */
     right: -40px;
     width: 220px;
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
-    /* TAMBAHKAN: Dorong logo sedikit ke bawah agar pas di dalam lingkaran */
     margin-top: 10px;
 }
 
-/* Responsif */
+/* ================================================
+   2. BANNER SECTION (Di bawah Hero)
+   ================================================ */
+.banner-section {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+    position: relative;
+    z-index: 3;
+    /* Di atas segalanya */
+    margin-top: -30px;
+    /* Tumpang tindih dengan hero */
+}
+
+/* Wrapper untuk setiap banner (untuk animasi) */
+.banner {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efek "Timbul" saat hover */
+.banner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.banner img {
+    width: 380px;
+    display: block;
+}
+
+/* ================================================
+   3. APP SECTION (Navigasi & Pencarian)
+   ================================================ */
+.app-section {
+    padding-top: 40px;
+}
+
+.app-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* Tombol Tab Aplikasi (Semua, Terbaru, dll.) */
+.app-tabs .tab-link {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    margin-right: 10px;
+    background-color: var(--white);
+    color: var(--text-grey);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.app-tabs .tab-link:hover {
+    color: var(--primary-orange);
+    transform: translateY(-2px);
+}
+
+.app-tabs .tab-link.active {
+    background-color: var(--primary-orange);
+    color: var(--white);
+    transform: translateY(0);
+}
+
+.app-tabs .tab-link.active:hover {
+    background-color: #d13a0a;
+}
+
+/* Search Bar */
+.search-bar {
+    position: relative;
+}
+
+.search-bar input {
+    font-family: "Poppins", sans-serif;
+    width: 300px;
+    padding: 10px 40px 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+    border-color: var(--primary-orange);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(241, 90, 36, 0.15);
+}
+
+.search-bar .fa-search {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-grey);
+}
+
+/* ================================================
+   4. APP GRID (Daftar Kartu Aplikasi)
+   ================================================ */
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
+    /* Delay 0.2s */
+    opacity: 0;
+    /* Mulai transparan untuk animasi */
+}
+
+/* Kartu Aplikasi Individual */
+.app-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.app-info {
+    flex-grow: 1;
+    margin-right: 15px;
+}
+
+.app-info h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.app-info p {
+    font-size: 0.9rem;
+    color: var(--text-grey);
+}
+
+.app-logo-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    object-fit: cover;
+    align-self: flex-start;
+}
+
+/* Tombol Status (Buka / Segera) */
+.app-status {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 6px 14px;
+    border-radius: 8px;
+    text-align: center;
+    margin-left: auto;
+    width: fit-content;
+    display: block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-status:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.app-status.status-soon {
+    background-color: #f0f0f0;
+    color: var(--text-grey);
+}
+
+.app-status.status-open {
+    background-color: #fff7f0;
+    color: var(--primary-orange);
+}
+
+/* ================================================
+   5. HIGHLIGHT APP (Kartu Spesial)
+   ================================================ */
+.highlight-app {
+    grid-column: span 2;
+    background-color: #fff7f0;
+    border: 2px solid var(--primary-orange);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-app:hover {
+    transform: scale(1.02) translateY(-5px);
+}
+
+.app-logo-large {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.highlight-app .card-main {
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+}
+
+.fab {
+    background-color: var(--primary-orange);
+    color: var(--white);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.fab:hover {
+    transform: scale(1.1);
+}
+
+/* ================================================
+   6. ANIMASI KEYFRAMES
+   ================================================ */
+
+/* Dihapus: @keyframes fadeIn sudah ada di global.css */
+
+/* ================================================
+   7. RESPONSIVE
+   ================================================ */
+
+/* Tablet ( < 992px ) */
 @media (max-width: 992px) {
+
+    /* -- Hero -- */
     .hero-container {
         flex-direction: column;
         text-align: center;
@@ -92,208 +357,39 @@
     .hero-image .logo-pasuruan {
         width: 220px;
     }
-}
 
-/* BANNER */
-.banner-section {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    padding: 20px 0;
-
-    position: relative;
-    /* DIUBAH: Jadikan '3' agar di atas lingkaran (1) dan konten (2) */
-    z-index: 3;
-    /* DIUBAH: Naikkan lagi agar lebih tumpang tindih */
-    margin-top: -30px;
-}
-
-.banner img {
-    width: 380px;
-    /* Dihapus dari permintaan sebelumnya */
-    border-radius: 0;
-    box-shadow: none;
-}
-
-.app-section {
-    padding-top: 40px;
-}
-
-.app-navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.app-tabs .tab-link {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 10px 20px;
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    margin-right: 10px;
-    background-color: var(--white);
-    color: var(--text-grey);
-}
-
-.app-tabs .tab-link.active {
-    background-color: var(--primary-orange);
-    color: var(--white);
-}
-
-.search-bar {
-    position: relative;
-}
-
-.search-bar input {
-    font-family: 'Poppins', sans-serif;
-    width: 300px;
-    padding: 10px 40px 10px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-}
-
-.search-bar .fa-search {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-grey);
-}
-
-/* Grid Aplikasi */
-.app-grid {
-    display: grid;
-    /* 3 kolom di desktop */
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.app-card {
-    background-color: var(--white);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 20px;
-    box-shadow: var(--shadow);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.app-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-.card-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    /* Logo dan teks sejajar di atas */
-    margin-bottom: 20px;
-}
-
-.app-info {
-    flex-grow: 1;
-    margin-right: 15px;
-}
-
-.app-info h3 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--text-dark);
-}
-
-.app-info p {
-    font-size: 0.9rem;
-    color: var(--text-grey);
-}
-
-.app-logo-placeholder {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    flex-shrink: 0;
-    object-fit: cover;
-    align-self: flex-start;
-}
-
-.app-status {
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    padding: 6px 14px;
-    border-radius: 8px;
-    text-align: center;
-    margin-left: auto;
-    /* Mendorong tombol ke kanan */
-    width: fit-content;
-    display: block;
-}
-
-.app-status.status-soon {
-    background-color: #f0f0f0;
-    color: var(--text-grey);
-}
-
-.app-status.status-open {
-    background-color: #FFF7F0;
-    /* Orange muda */
-    color: var(--primary-orange);
-}
-
-/* ======== RESPONSIVE ======== */
-
-/* Tablet (2 kolom) */
-@media (max-width: 992px) {
-    .nav-links {
-        display: none;
-        /* Sembunyikan nav link di tablet */
-    }
-
-    .hero-image-wrapper {
-        width: 60%;
-    }
-
+    /* -- App Grid -- */
     .app-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* -- Highlight App -- */
+    .highlight-app {
+        grid-column: span 1;
+    }
+
+    .app-logo-large {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* -- Banner -- */
+    .banner img {
+        width: 30vw;
+        /* 30% dari lebar layar */
+    }
 }
 
-/* Mobile (2 kolom) */
+/* Mobile ( < 768px ) - BLOK GABUNGAN */
 @media (max-width: 768px) {
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 40px;
+
+    /* -- Hero -- */
+    .hero {
+        /* PERBAIKAN: Menambahkan padding-top untuk navbar mobile */
+        padding-top: 110px;
     }
 
-    .hero-text {
-        padding-right: 0;
-    }
-
-    .hero-image-wrapper {
-        position: relative;
-        transform: translateX(0);
-        width: 100%;
-        height: 200px;
-        margin-top: 30px;
-        border-radius: 0;
-        /* Bentuk kurva di atas */
-        border-top-left-radius: 100px;
-        border-top-right-radius: 100px;
-    }
-
-    .hero-image-wrapper img {
-        transform: translateX(0);
-        max-width: 120px;
-    }
-
+    /* -- App Nav -- */
     .app-navigation {
         flex-direction: column;
         align-items: stretch;
@@ -309,7 +405,7 @@
         width: 100%;
     }
 
-    /* Grid tetap 2 kolom di mobile sesuai permintaan */
+    /* -- App Grid -- */
     .app-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
@@ -323,58 +419,44 @@
         font-size: 1rem;
     }
 
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
+    /* -- Banner (Geser Kanan-Kiri) -- */
+    .banner-section {
+        flex-direction: row;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        margin-top: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .banner-section::-webkit-scrollbar {
+        display: none;
+    }
+
+    .banner {
+        flex-shrink: 0;
+    }
+
+    .banner img {
+        width: 80vw;
     }
 }
 
-/* Mobile Kecil (1 kolom) - Opsi tambahan untuk usability */
+/* Mobile Kecil ( < 480px ) */
 @media (max-width: 480px) {
+
+    /* -- Hero -- */
+    .hero {
+        /* PERBAIKAN: Menambahkan padding-top untuk navbar mobile kecil */
+        padding-top: 100px;
+    }
+
+    /* -- App Grid -- */
     .app-grid {
         grid-template-columns: 1fr;
-        /* Jadi 1 kolom di layar sangat kecil */
-    }
-}
-
-/* ==== Highlight untuk SMART Perizinan ==== */
-.highlight-app {
-    grid-column: span 2;
-    /* Buat kartu lebih lebar dari lainnya */
-    background-color: #fff7f0;
-    border: 2px solid var(--primary-orange);
-    transform: scale(1.02);
-}
-
-.highlight-app:hover {
-    transform: scale(1.04);
-}
-
-/* Logo lebih besar */
-.app-logo-large {
-    width: 400px;
-    height: 400px;
-    border-radius: 20px;
-    object-fit: cover;
-}
-
-/* Supaya teks sejajar dengan logo besar */
-.highlight-app .card-main {
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-}
-
-/* Responsif */
-@media (max-width: 992px) {
-    .highlight-app {
-        grid-column: span 1;
-        /* Kembali normal di tablet */
-    }
-
-    .app-logo-large {
-        width: 80px;
-        height: 80px;
+        /* 1 kolom */
     }
 }

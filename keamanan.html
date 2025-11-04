@@ -2,19 +2,21 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Keamanan - GAPURA EMAS</title>
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/keamanan.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/keamanan.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 
 <body>
     <header class="navbar">
         <div class="logo">
-            <img src="assets/gapura.png" alt="Logo Gapura Emas" class="logo-image">
+            <img src="assets/gapura.png" alt="Logo Gapura Emas" class="logo-image" />
             <h1><span class="orange">GAPURA</span>EMAS</h1>
         </div>
         <nav>
@@ -36,87 +38,267 @@
         </div>
     </header>
 
-    <main role="main" aria-label="Keamanan Akun">
-        <h1>Keamanan Akun</h1>
-        <hr />
-    
-        <div class="tabs" role="tablist" aria-label="Menu tab keamanan akun">
-            <button class="tab active" role="tab" aria-selected="true" aria-controls="panel-akun" id="tab-akun"
-                tabindex="0">Akun</button>
-            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-2fa" id="tab-2fa"
-                tabindex="-1">2FA</button>
-            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-sesi" id="tab-sesi" tabindex="-1">Sesi
-                Aktif</button>
-        </div>
-    
-        <section id="panel-akun" role="tabpanel" aria-labelledby="tab-akun">
-            <div class="card" aria-label="Ubah Sandi">
-                <div style="font-weight:700; font-size:16px; margin-bottom:10px;">Ubah Sandi</div>
-                <hr />
-                <form>
-                    <div class="field-group">
-                        <label for="old-password">Password Lama</label>
-                        <input type="password" id="old-password" placeholder="Masukkan Password Lama"
-                            autocomplete="current-password" />
-                    </div>
-                    <div class="field-group">
-                        <label for="new-password">Password Baru</label>
-                        <input type="password" id="new-password" autocomplete="new-password" />
-                    </div>
-                    <div class="field-group">
-                        <label for="repeat-password">Password Baru (ulangi)</label>
-                        <input type="password" id="repeat-password" autocomplete="new-password" />
-                    </div>
-                    <button type="submit" class="btn-simpan">Simpan</button>
-                </form>
+    <main>
+        <div class="container" style="padding-top: 30px; padding-bottom: 30px">
+            <h1 class="page-title">Keamanan Akun</h1>
+
+            <div class="security-tabs">
+                <button class="tab-link active" data-tab="akun">Akun</button>
+                <button class="tab-link" data-tab="2fa">2FA</button>
+                <button class="tab-link" data-tab="sesi-aktif">Sesi Aktif</button>
             </div>
 
-            <div class="card" aria-label="Email dan Nomor HP">
-                <div style="font-weight:700; font-size:16px; margin-bottom:10px;">Email & Nomor HP</div>
-                <hr />
-                <form>
-                    <div class="field-group">
-                        <label>Email</label>
-                        <div style="flex:1; font-size:14px; color: var(--gray-text-muted); user-select: text;">
-                            email@gmail.com
+            <div class="tab-container">
+                <div class="tab-content active" id="akun">
+                    <div class="content-card">
+                        <h2>Ubah Sandi</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="pass-lama">Password Lama</label>
+                                <input type="password" id="pass-lama" placeholder="Masukkan Password Lama" />
+                            </div>
+                            <div class="form-group">
+                                <label for="pass-baru">Password Baru</label>
+                                <input type="password" id="pass-baru" placeholder="Masukkan Password Baru" />
+                            </div>
+                            <div class="form-group">
+                                <label for="pass-ulang">Password Baru (ulangi)</label>
+                                <input type="password" id="pass-ulang" placeholder="Masukkan Password Baru (ulangi)" />
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="content-card">
+                        <h2>Email & Nomor HP</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" value="email@gmail.com" readonly />
+                            </div>
+                            <div class="form-group">
+                                <label for="hp">Nomor HP</label>
+                                <div class="input-with-button">
+                                    <input type="text" id="hp" placeholder="Nomor HP Baru" />
+                                    <button type="button" class="btn btn-secondary">
+                                        Kirim Kode
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="otp">Masukkan kode OTP</label>
+                                <input type="text" id="otp" placeholder="Masukkan kode OTP" />
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="content-card">
+                        <h2>Akun yang terhubung</h2>
+                        <p>Layanan yang anda gunakan untuk masuk GAPURAEMAS</p>
+                        <div class="linked-account">
+                            <img src="https://i.pravatar.cc/150?img=1" alt="Avatar" class="linked-avatar" />
+                            <div class="linked-info">
+                                <strong>Google</strong>
+                                <span>aba123@gmail.com</span>
+                            </div>
+                            <button class="btn btn-primary">Putuskan Tautan</button>
                         </div>
                     </div>
-                    <div class="field-group">
-                        <label for="phone">Nomor HP</label>
-                        <input type="text" id="phone" placeholder="Nomor HP Baru" />
-                        <button type="button" class="btn-kirim-kode">Kirim Kode</button>
-                    </div>
-                    <div class="field-group">
-                        <label for="otp">Masukkan kode OTP</label>
-                        <input type="text" id="otp" />
-                    </div>
-                    <button type="submit" class="btn-simpan">Simpan</button>
-                </form>
-            </div>
-        </section>
-    
-        <div class="card" aria-label="Akun yang terhubung">
-            <div style="font-weight:700; font-size:16px; margin-bottom:10px;">Akun yang terhubung</div>
-            <hr />
-            <p class="info-text">Layanan yang anda gunakan untuk masuk GAPURAEMAS</p>
-            <div class="account-item">
-                <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=64&amp;q=80"
-                    alt="Foto profil Google" />
-                <div class="account-info">
-                    <strong>Google</strong>
-                    <small>aba123@gmail.com</small>
                 </div>
-                <button class="btn-putus" type="button">Putuskan Tautan</button>
+
+                <div class="tab-content" id="2fa">
+                    <div class="content-card">
+                        <h2 class="no-border">Google Authenticator</h2>
+                        <p class="auth-description">
+                            Keamanan ini berfungsi untuk menjaga akun kamu agar tidak mudah dibobol.
+                            
+                            Kalau biasanya kamu masuk ke akun cuma pakai password, dengan aplikasi ini kamu juga perlu kode angka khusus yang muncul
+                            di Google Authenticator.
+                            Kode itu berubah setiap beberapa detik, jadi hanya kamu yang bisa tahu.
+                        </p>
+
+                        <div class="steps-container">
+                            <div class="step">
+                                <h3>1. Scan QR berikut</h3>
+                                <p>
+                                    Buka aplikasi google authenticator pada ponsel anda lalu
+                                    pindai qr code berikut.
+                                </p>
+                                <img src="assets/pastipaskabbot.png" alt="QR Code Authenticator" class="authenticator-qr" />
+                            </div>
+                            <div class="step">
+                                <h3>2. Masukkan kode OTP</h3>
+                                <p>
+                                    Ketikkan 6 digit kode yang tampil pada aplikasi google
+                                    authenticator pada kolom berikut lalu klik "Terapkan".
+                                </p>
+                                <div class="form-group">
+                                    <input type="text" id="otp-2fa" placeholder="••••••" class="otp-input" />
+                                </div>
+                                <button class="btn btn-terapkan">Terapkan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="sesi-aktif">
+                    <div class="content-card">
+                        <h2 class="session-list-title">Sesi Aktif</h2>
+                        <div class="session-list">
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
+                                    <span class="session-meta">Sejak Senin, 20 Okt 2025 13:30:01</span>
+                                    <span class="session-meta">IP : 172.25.25.1</span>
+                                    <span class="session-meta">User Agent : Mozilla/5.0 (Linux; Android 10; K)
+                                        AppleWebKit/537.36...</span>
+                                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
+                                </div>
+                                <div class="session-action">
+                                    <button class="btn btn-danger btn-akhiri-sesi">
+                                        <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
+                                    <span class="session-meta">Sejak Senin, 20 Okt 2025 13:30:01</span>
+                                    <span class="session-meta">IP : 172.25.25.1</span>
+                                    <span class="session-meta">User Agent : Mozilla/5.0 (Linux; Android 10; K)
+                                        AppleWebKit/537.36...</span>
+                                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
+                                </div>
+                                <div class="session-action">
+                                    <button class="btn btn-danger btn-akhiri-sesi">
+                                        <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
-    
+
+    <div class="modal-overlay" id="konfirmasi-modal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-exclamation"></i>
+            </div>
+            <h2>Apakah Anda Yakin</h2>
+            <p>
+                Perangkat yang terkait dengan sesi ini akan di logout secara paksa
+            </p>
+            <div class="modal-actions">
+                <button class="btn btn-success" id="btn-modal-confirm">
+                    Ya, Akhiri!
+                </button>
+                <button class="btn btn-danger" id="btn-modal-cancel">Batalkan</button>
+            </div>
+        </div>
+    </div>
+    <div class="fab-container">
+        <button class="fab">
+            <i class="fas fa-universal-access"></i>
+        </button>
+    </div>
+
     <footer>
         <div class="container footer-content">
-            <p class="copyright">COPYRIGHT © 2022–2025 Diskominfo Kabupaten Pasuruan</p>
+            <p class="copyright">
+                COPYRIGHT © 2022–2025 Diskominfo Kabupaten Pasuruan
+            </p>
             <p class="gov-text">Pemerintah Daerah Kabupaten Pasuruan</p>
         </div>
     </footer>
+
+    <nav class="mobile-nav">
+        <a href="beranda.html">
+            <i class="fas fa-home"></i>
+            <span>Beranda</span>
+        </a>
+        <a href="personalisasi.html">
+            <i class="fas fa-user-cog"></i>
+            <span>Personalisasi</span>
+        </a>
+        <a href="keamanan.html" class="active">
+            <i class="fas fa-shield-alt"></i>
+            <span>Keamanan</span>
+        </a>
+        <a href="riwayat.html">
+            <i class="fas fa-history"></i>
+            <span>Riwayat</span>
+        </a>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // --- LOGIKA TAB FADE-IN ---
+            const tabButtons = document.querySelectorAll(
+                ".security-tabs .tab-link"
+            );
+            const tabContents = document.querySelectorAll(
+                ".tab-container .tab-content"
+            );
+
+            if (tabButtons.length > 0 && tabContents.length > 0) {
+                tabButtons.forEach((button) => {
+                    button.addEventListener("click", () => {
+                        const targetId = button.getAttribute("data-tab");
+                        tabButtons.forEach((btn) => btn.classList.remove("active"));
+                        button.classList.add("active");
+                        tabContents.forEach((content) => {
+                            content.classList.remove("active");
+                        });
+                        const targetContent = document.getElementById(targetId);
+                        if (targetContent) {
+                            targetContent.classList.add("active");
+                        }
+                    });
+                });
+            }
+
+            // --- LOGIKA MODAL KONFIRMASI ---
+            const modal = document.getElementById("konfirmasi-modal");
+            const endSessionButtons = document.querySelectorAll(".btn-akhiri-sesi"); // <-- Ini sekarang akan berfungsi
+            const btnModalCancel = document.getElementById("btn-modal-cancel");
+            const btnModalConfirm = document.getElementById("btn-modal-confirm");
+
+            if (modal) {
+                // Tampilkan modal saat klik "Akhiri Sesi"
+                endSessionButtons.forEach((button) => {
+                    button.addEventListener("click", () => {
+                        modal.classList.add("active");
+                    });
+                });
+
+                // Sembunyikan modal saat klik "Batalkan"
+                btnModalCancel.addEventListener("click", () => {
+                    modal.classList.remove("active");
+                });
+
+                // Sembunyikan modal saat klik "Ya, Akhiri!"
+                btnModalConfirm.addEventListener("click", () => {
+                    console.log("Sesi diakhiri!");
+                    modal.classList.remove("active");
+                });
+
+                // Sembunyikan modal saat klik di luar (area overlay)
+                modal.addEventListener("click", (e) => {
+                    if (e.target === modal) {
+                        modal.classList.remove("active");
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
