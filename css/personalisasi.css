@@ -8,6 +8,7 @@
     color: var(--text-dark);
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 15px;
+    font-family: poppins, sans-serif;
 
     /* Animasi fade-in */
     animation: fadeIn 0.5s ease-out forwards;
@@ -34,6 +35,7 @@
     margin-bottom: 20px;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 15px;
+    font-family: poppins, sans-serif;
 }
 
 /* === Bagian Profil === */
@@ -183,14 +185,14 @@
 
 .btn-danger {
     background-color: var(--white);
-    color: #be0e0eff;
+    color: #C12E00;
     /* Merah */
-    border: 1px solid #be0e0eff;
+    border: 1px solid #C12E00;
     padding: 10px 20px;
 }
 
 .btn-danger:hover {
-    background-color: #be0e0eff;
+    background-color: #C12E00;
     color: var(--white);
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(190, 14, 14, 0.2);
