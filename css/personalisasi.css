@@ -185,14 +185,14 @@
 
 .btn-danger {
     background-color: var(--white);
-    color: #C12E00;
+    color: #c12e00;
     /* Merah */
-    border: 1px solid #C12E00;
+    border: 1px solid #c12e00;
     padding: 10px 20px;
 }
 
 .btn-danger:hover {
-    background-color: #C12E00;
+    background-color: #c12e00;
     color: var(--white);
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(190, 14, 14, 0.2);
@@ -228,10 +228,24 @@
     border-bottom: none;
 }
 
-.telegram-cara h3 span {
+/* [PERBAIKAN] Mengganti warna link video agar konsisten */
+.telegram-cara h3 a {
+    text-decoration: none;
     font-weight: 500;
-    color: #56CD87;
     font-size: 1rem;
+    color: var(--text-grey);
+    /* Warna abu-abu */
+    transition: color 0.3s ease;
+}
+
+.telegram-cara h3 a:hover {
+    color: var(--primary-orange);
+}
+
+.telegram-cara h3 a span {
+    color: #56CD87;
+    font-size: inherit;
+    font-weight: inherit;
 }
 
 .telegram-cara ol {
@@ -247,6 +261,7 @@
 
 .telegram-cara ol li a {
     color: #12A4EC;
+    /* [PERBAIKAN] Link diubah jadi oranye */
     text-decoration: none;
     font-weight: 500;
 }
@@ -274,10 +289,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Default rata tengah untuk desktop */
     margin-top: 10px;
 }
 
-.qr-wrapper .btn-secondary {
+.qr-wrapper .btn-secondary,
+.qr-wrapper .btn-success {
+    /* Menargetkan kedua tombol */
     margin-bottom: 20px;
 }
 
@@ -315,38 +333,24 @@
     box-shadow: 0 0 0 3px rgba(241, 90, 36, 0.15);
 }
 
+/* === [BARU] Helper Class untuk Rata Tengah === */
+.text-center {
+    text-align: center;
+}
+
+.text-center .qr-code {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-center .qr-caption {
+    text-align: center;
+}
+
 /* === Teks Placeholder === */
 ::placeholder {
     color: var(--text-grey);
     opacity: 1;
-}
-
-/* === Floating Action Button (FAB) === */
-.fab-container {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 100;
-}
-
-.fab {
-    background-color: var(--primary-orange);
-    color: var(--white);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s ease;
-}
-
-.fab:hover {
-    transform: scale(1.1);
 }
 
 /* === Animasi Keyframes === */
@@ -391,20 +395,28 @@
         padding-bottom: 0;
     }
 
+    /* Mengubah .qr-wrapper untuk rata tengah */
     .qr-wrapper {
-        display: block;
+        display: flex;
+        /* Menggunakan flex */
+        flex-direction: column;
+        /* Tumpuk vertikal */
+        align-items: center;
+        /* Rata tengah horizontal */
         margin-left: 0;
     }
 
     .qr-code {
-        margin-left: 0;
-        margin-right: 0;
+        margin-left: auto;
+        /* Memastikan rata tengah (jika flex gagal) */
+        margin-right: auto;
     }
 
     .qr-caption {
         margin-left: 0;
         margin-right: 0;
-        text-align: left;
+        text-align: center;
+        /* Rata tengah caption */
     }
 }
 

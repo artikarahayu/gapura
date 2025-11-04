@@ -39,7 +39,7 @@
     </header>
 
     <main>
-        <div class="container" style="padding-top: 30px; padding-bottom: 30px">
+        <div class="container" style="padding-bottom: 30px">
             <h1 class="page-title">Keamanan Akun</h1>
 
             <div class="security-tabs">
@@ -106,7 +106,7 @@
                                 <strong>Google</strong>
                                 <span>aba123@gmail.com</span>
                             </div>
-                            <button class="btn btn-primary">Putuskan Tautan</button>
+                            <button class="btn btn-danger">Putuskan Tautan</button>
                         </div>
                     </div>
                 </div>
@@ -115,11 +115,11 @@
                     <div class="content-card">
                         <h2 class="no-border">Google Authenticator</h2>
                         <p class="auth-description">
-                            Keamanan ini berfungsi untuk menjaga akun kamu agar tidak mudah dibobol.
-                            
-                            Kalau biasanya kamu masuk ke akun cuma pakai password, dengan aplikasi ini kamu juga perlu kode angka khusus yang muncul
-                            di Google Authenticator.
-                            Kode itu berubah setiap beberapa detik, jadi hanya kamu yang bisa tahu.
+                            Keamanan ini berfungsi untuk menjaga akun kamu agar tidak mudah
+                            dibobol. Kalau biasanya kamu masuk ke akun cuma pakai password,
+                            dengan aplikasi ini kamu juga perlu kode angka khusus yang
+                            muncul di Google Authenticator. Kode itu berubah setiap beberapa
+                            detik, jadi hanya kamu yang bisa tahu.
                         </p>
 
                         <div class="steps-container">
@@ -129,7 +129,8 @@
                                     Buka aplikasi google authenticator pada ponsel anda lalu
                                     pindai qr code berikut.
                                 </p>
-                                <img src="assets/pastipaskabbot.png" alt="QR Code Authenticator" class="authenticator-qr" />
+                                <img src="assets/pastipaskabbot.png" alt="QR Code Authenticator"
+                                    class="authenticator-qr" />
                             </div>
                             <div class="step">
                                 <h3>2. Masukkan kode OTP</h3>
@@ -150,6 +151,51 @@
                     <div class="content-card">
                         <h2 class="session-list-title">Sesi Aktif</h2>
                         <div class="session-list">
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
+                                    <span class="session-meta">Sejak Senin, 20 Okt 2025 13:30:01</span>
+                                    <span class="session-meta">IP : 172.25.25.1</span>
+                                    <span class="session-meta">User Agent : Mozilla/5.0 (Linux; Android 10; K)
+                                        AppleWebKit/537.36...</span>
+                                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
+                                </div>
+                                <div class="session-action">
+                                    <button class="btn btn-danger btn-akhiri-sesi">
+                                        <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
+                                    <span class="session-meta">Sejak Senin, 20 Okt 2025 13:30:01</span>
+                                    <span class="session-meta">IP : 172.25.25.1</span>
+                                    <span class="session-meta">User Agent : Mozilla/5.0 (Linux; Android 10; K)
+                                        AppleWebKit/537.36...</span>
+                                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
+                                </div>
+                                <div class="session-action">
+                                    <button class="btn btn-danger btn-akhiri-sesi">
+                                        <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
+                                    <span class="session-meta">Sejak Senin, 20 Okt 2025 13:30:01</span>
+                                    <span class="session-meta">IP : 172.25.25.1</span>
+                                    <span class="session-meta">User Agent : Mozilla/5.0 (Linux; Android 10; K)
+                                        AppleWebKit/537.36...</span>
+                                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
+                                </div>
+                                <div class="session-action">
+                                    <button class="btn btn-danger btn-akhiri-sesi">
+                                        <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
+                                    </button>
+                                </div>
+                            </div>
                             <div class="session-item">
                                 <div class="session-info">
                                     <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
@@ -204,6 +250,7 @@
             </div>
         </div>
     </div>
+
     <div class="fab-container">
         <button class="fab">
             <i class="fas fa-universal-access"></i>
@@ -267,7 +314,7 @@
 
             // --- LOGIKA MODAL KONFIRMASI ---
             const modal = document.getElementById("konfirmasi-modal");
-            const endSessionButtons = document.querySelectorAll(".btn-akhiri-sesi"); // <-- Ini sekarang akan berfungsi
+            const endSessionButtons = document.querySelectorAll(".btn-akhiri-sesi");
             const btnModalCancel = document.getElementById("btn-modal-cancel");
             const btnModalConfirm = document.getElementById("btn-modal-confirm");
 
