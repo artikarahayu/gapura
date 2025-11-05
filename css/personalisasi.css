@@ -184,18 +184,17 @@
 }
 
 .btn-danger {
-    background-color: var(--white);
-    color: #c12e00;
-    /* Merah */
-    border: 1px solid #c12e00;
-    padding: 10px 20px;
+    background-color: #8c1007;
+    /* Warna merah kustom Anda */
+    color: var(--white);
+    border: none;
 }
 
 .btn-danger:hover {
-    background-color: #c12e00;
+    background-color: #c82333;
     color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(190, 14, 14, 0.2);
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.2);
 }
 
 .form-actions {
