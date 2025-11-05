@@ -1,7 +1,3 @@
-# TODO: Connect Homepage to Features
-
-- [x] Update beranda.html navigation links to point to personalisasi.html, keamanan.html, riwayat.html
-- [x] Create basic HTML content for personalisasi.html with navigation and title
-- [x] Create basic HTML content for keamanan.html with navigation and title
-- [x] Create basic HTML content for riwayat.html with navigation and title
-- [x] Test the connections by opening beranda.html in browser
+- [x] Tambah HTML popup modal di beranda.html setelah main, sebelum footer
+- [x] Tambah CSS styling popup di css/beranda.css (overlay, modal, animasi fade in slide up, ikon, pesan, tombol close)
+- [x] Tambah JS logic di script tag beranda.html untuk show popup saat load dan close saat klik

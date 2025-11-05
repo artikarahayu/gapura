@@ -254,6 +254,22 @@
         </section>
     </main>
 
+    <!-- Popup Notifikasi Shopee-style -->
+    <div id="popup-overlay" class="popup-overlay">
+        <div class="popup-modal">
+            <div class="popup-header">
+                <div class="popup-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <button class="popup-close-btn" id="popup-close-btn">&times;</button>
+            </div>
+            <div class="popup-body">
+                <h3>Selamat Datang!</h3>
+                <p>Selamat datang di GAPURA EMAS, portal layanan digital Kabupaten Pasuruan. Jelajahi berbagai aplikasi dan layanan yang tersedia.</p>
+            </div>
+        </div>
+    </div>
+
     <div class="fab-container">
         <button class="fab" aria-haspopup="true" aria-expanded="false" aria-label="Aksesibilitas">
             <i class="fas fa-universal-access"></i>
@@ -378,6 +394,36 @@
                         !userIconBtn.contains(event.target)
                     ) {
                         profileDropdown.classList.remove("active");
+                    }
+                });
+            }
+
+            // --- BAGIAN 3: LOGIKA POPUP NOTIFIKASI ---
+            const popupOverlay = document.getElementById("popup-overlay");
+            const popupCloseBtn = document.getElementById("popup-close-btn");
+
+            if (popupOverlay && popupCloseBtn) {
+                // Cek apakah popup sudah pernah ditampilkan dalam sesi ini
+                const popupShown = sessionStorage.getItem("popupShown");
+
+                if (!popupShown) {
+                    // Tampilkan popup saat halaman load (hanya sekali per sesi)
+                    setTimeout(() => {
+                        popupOverlay.classList.add("active");
+                        // Set flag bahwa popup sudah ditampilkan
+                        sessionStorage.setItem("popupShown", "true");
+                    }, 1000); // Delay 1 detik agar halaman stabil
+                }
+
+                // Tutup popup saat klik tombol close
+                popupCloseBtn.addEventListener("click", function () {
+                    popupOverlay.classList.remove("active");
+                });
+
+                // Tutup popup saat klik overlay (di luar modal)
+                popupOverlay.addEventListener("click", function (event) {
+                    if (event.target === popupOverlay) {
+                        popupOverlay.classList.remove("active");
                     }
                 });
             }
