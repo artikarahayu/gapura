@@ -73,11 +73,39 @@ body {
     display: flex;
 }
 
-.fab-menu h4 {
-    color: var(--text-dark);
+.fab-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 5px;
+}
+
+.fab-header h4 {
+    color: var(--text-dark);
     font-weight: 600;
     font-size: 1.1rem;
+    margin: 0;
+}
+
+.fab-close {
+    background: none;
+    border: none;
+    color: var(--text-grey);
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.fab-close:hover {
+    color: var(--text-dark);
+}
+
+.fab-close i {
+    font-size: 16px;
 }
 
 .fab-item {

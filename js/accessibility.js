@@ -15,7 +15,12 @@ function initAccessibilityFeatures() {
             </button>
 
             <div class="fab-menu" role="menu" aria-hidden="true">
-                <h4>Aksesibilitas</h4>
+                <div class="fab-header">
+                    <h4>Aksesibilitas</h4>
+                    <button class="fab-close" aria-label="Tutup menu aksesibilitas">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
 
                 <div class="fab-item" role="menuitem">
                     <span>Mode Suara</span>
@@ -94,6 +99,12 @@ function initAccessibilityFeatures() {
 
     // Toggle FAB menu
     if (fabButton && fabMenu) {
+        const closeMenu = () => {
+            fabMenu.classList.remove('active');
+            fabMenu.setAttribute('aria-hidden', 'true');
+            fabButton.setAttribute('aria-expanded', 'false');
+        };
+
         fabButton.addEventListener('click', function (e) {
             e.stopPropagation();
             const isActive = fabMenu.classList.toggle('active');
@@ -101,12 +112,22 @@ function initAccessibilityFeatures() {
             fabButton.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         });
 
+        // Close button handler
+        const closeButton = fabMenu.querySelector('.fab-close');
+        if (closeButton) {
+            closeButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeMenu();
+                if (voiceSwitch && voiceSwitch.classList.contains('on')) {
+                    speak('Menu ditutup');
+                }
+            });
+        }
+
         // Close on outside click
         document.addEventListener('click', function (e) {
             if (!fabContainer.contains(e.target)) {
-                fabMenu.classList.remove('active');
-                fabMenu.setAttribute('aria-hidden', 'true');
-                fabButton.setAttribute('aria-expanded', 'false');
+                closeMenu();
             }
         });
     }
