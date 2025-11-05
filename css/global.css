@@ -336,7 +336,7 @@ main {
 }
 
 .btn-danger {
-    background-color: #8C1007;
+    background-color: #8c1007;
     /* Merah kustom dari keamanan.css */
     color: var(--white);
     border: none;
