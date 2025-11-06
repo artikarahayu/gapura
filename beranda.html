@@ -266,7 +266,9 @@
         <button class="popup-close-btn" id="popup-close-btn">&times;</button>
     </div>
             <div class="popup-body">
-                <p>Selamat datang di GAPURA EMAS, portal layanan digital Kabupaten Pasuruan. Jelajahi berbagai aplikasi dan layanan yang tersedia.</p>
+                <p>Sehubungan dengan adanya perubahan mekanisme pada perusahaan yang menaungi WhatsApp API Business, bersama ini
+                disampaikan bahwa fitur notifikasi WhatsApp pada beberapa aplikasi mulai tanggal 7 Agustus 2025 DIHENTIKAN dan
+                selanjutnya fitur notifikasi pada aplikasi-aplikasi tersebut akan dialihkan ke Aplikasi TELEGRAM.</p>
             </div>
         </div>
     </div>
@@ -408,10 +410,8 @@
                 const popupShown = sessionStorage.getItem("popupShown");
 
                 if (!popupShown) {
-                    // Tampilkan popup saat halaman load (hanya sekali per sesi)
                     setTimeout(() => {
-                        popupOverlay.classList.add("active");
-                        // Set flag bahwa popup sudah ditampilkan
+                        //popupOverlay.classList.add("active");
                         sessionStorage.setItem("popupShown", "true");
                     }, 1000); // Delay 1 detik agar halaman stabil
                 }
@@ -428,7 +428,8 @@
                     }
                 });
             }
-        });
+        }
+        );
     </script>
 </body>
 
