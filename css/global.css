@@ -83,7 +83,7 @@ nav a {
     background-color: transparent;
     display: inline-block;
     font-size: 0.9rem;
-    transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+    /* [DIHAPUS ANIMASI] Transisi warna, background, dan transform dihapus untuk menghilangkan animasi saat pindah navbar */
 }
 
 .nav-separator {
@@ -96,13 +96,13 @@ nav a {
 nav a:hover {
     background-color: transparent;
     color: var(--primary-orange);
-    transform: translateY(-2px);
+    /* [DIHAPUS ANIMASI] Transform translateY dihapus untuk menghilangkan animasi saat hover navbar */
 }
 
 nav a.active {
     background-color: var(--primary-orange);
     color: var(--white);
-    transform: translateY(0);
+    /* [DIHAPUS ANIMASI] Transform translateY dihapus untuk menghilangkan animasi pada navbar aktif */
 }
 
 nav a.active:hover {

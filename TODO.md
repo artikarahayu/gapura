@@ -1,3 +1,3 @@
-- [x] Tambah HTML popup modal di beranda.html setelah main, sebelum footer
-- [x] Tambah CSS styling popup di css/beranda.css (overlay, modal, animasi fade in slide up, ikon, pesan, tombol close)
-- [x] Tambah JS logic di script tag beranda.html untuk show popup saat load dan close saat klik
+# TODO: Hapus Animasi Navbar
+
+- [ ] Edit css/global.css: Hapus transition dan transform pada nav a, nav a:hover, nav a.active, dan tambahkan komentar pada bagian yang diubah.
