@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Keamanan - GAPURA EMAS</title>
@@ -11,443 +10,506 @@
     <link rel="stylesheet" href="css/fab.css" />
     <script src="js/accessibility.js" defer></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
 
-<body>
+  <body>
     <header class="navbar">
-        <div class="logo">
-            <img src="assets/gapura.png" alt="Logo Gapura Emas" class="logo-image" />
-            <h1><span class="orange">GAPURA</span>EMAS</h1>
+      <div class="logo">
+        <img
+          src="assets/gapura.png"
+          alt="Logo Gapura Emas"
+          class="logo-image"
+        />
+        <h1><span class="orange">GAPURA</span>EMAS</h1>
+      </div>
+      <nav>
+        <a href="beranda.html">Beranda</a>
+        <span class="nav-separator">|</span>
+        <a href="personalisasi.html">Personalisasi</a>
+        <span class="nav-separator">|</span>
+        <a href="keamanan.html" class="active">Keamanan</a>
+        <span class="nav-separator">|</span>
+        <a href="riwayat.html">Riwayat</a>
+      </nav>
+      <div class="user-info">
+        <i class="fas fa-bell notification-icon"></i>
+        <div class="user-details">
+          <span>Nama Pengguna</span>
+          <p class="role">Role Pengguna</p>
         </div>
-        <nav>
-            <a href="beranda.html">Beranda</a>
-            <span class="nav-separator">|</span>
-            <a href="personalisasi.html">Personalisasi</a>
-            <span class="nav-separator">|</span>
-            <a href="keamanan.html" class="active">Keamanan</a>
-            <span class="nav-separator">|</span>
-            <a href="riwayat.html">Riwayat</a>
-        </nav>
-        <div class="user-info">
-            <i class="fas fa-bell notification-icon"></i>
-            <div class="user-details">
-                <span>Nama Pengguna</span>
-                <p class="role">Role Pengguna</p>
-            </div>
-            <i class="fas fa-user-circle user-icon" id="user-icon-btn"></i>
-            <div class="profile-dropdown" id="profile-dropdown">
-                <div class="profile-dropdown-header">
-                    <button class="profile-close-btn" id="profile-close-btn">
-                        &times;
-                    </button>
-                </div>
-                <div class="profile-dropdown-body">
-                    <a href="#" class="btn btn-danger">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Logout</span>
-                    </a>
-                </div>
-            </div>
+        <i class="fas fa-user-circle user-icon" id="user-icon-btn"></i>
+        <div class="profile-dropdown" id="profile-dropdown">
+          <div class="profile-dropdown-header">
+            <button class="profile-close-btn" id="profile-close-btn">
+              &times;
+            </button>
+          </div>
+          <div class="profile-dropdown-body">
+            <a href="#" class="btn btn-danger">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </a>
+          </div>
         </div>
+      </div>
     </header>
 
     <div class="notification-panel" id="notification-panel">
-        <div class="notification-header">
-            <h2>Notifikasi</h2>
-            <button class="notification-close-btn" id="notification-close-btn">
-                &times;
-            </button>
-        </div>
-        <div class="notification-list">
-            <a href="#" class="notification-item unread">
-                <span class="notification-dot"></span>
-                <p class="notification-text">Akun anda terblokir</p>
-            </a>
-            <a href="#" class="notification-item unread">
-                <span class="notification-dot"></span>
-                <p class="notification-text">
-                    Anda mendapatkan izin akses masuk Sepakat Kabupaten Pasuruan
-                </p>
-            </a>
-            <a href="#" class="notification-item">
-                <span class="notification-dot"></span>
-                <p class="notification-text">Password anda berhasil diubah.</p>
-            </a>
-        </div>
-        <div class="notification-footer">
-            <button class="btn btn-secondary" id="clear-notifications">
-                Bersihkan semua notifikasi
-            </button>
-        </div>
+      <div class="notification-header">
+        <h2>Notifikasi</h2>
+        <button class="notification-close-btn" id="notification-close-btn">
+          &times;
+        </button>
+      </div>
+      <div class="notification-list">
+        <a href="#" class="notification-item unread">
+          <span class="notification-dot"></span>
+          <p class="notification-text">Akun anda terblokir</p>
+        </a>
+        <a href="#" class="notification-item unread">
+          <span class="notification-dot"></span>
+          <p class="notification-text">
+            Anda mendapatkan izin akses masuk Sepakat Kabupaten Pasuruan
+          </p>
+        </a>
+        <a href="#" class="notification-item">
+          <span class="notification-dot"></span>
+          <p class="notification-text">Password anda berhasil diubah.</p>
+        </a>
+      </div>
+      <div class="notification-footer">
+        <button class="btn btn-secondary" id="clear-notifications">
+          Bersihkan semua notifikasi
+        </button>
+      </div>
     </div>
 
     <main>
-        <div class="container" style="padding-bottom: 30px">
-            <h1 class="page-title">Keamanan Akun</h1>
+      <div class="container" style="padding-bottom: 30px">
+        <h1 class="page-title">Keamanan Akun</h1>
 
-            <div class="security-tabs">
-                <button class="tab-link active" data-tab="akun">Akun</button>
-                <button class="tab-link" data-tab="2fa">2FA</button>
-                <button class="tab-link" data-tab="sesi-aktif">Sesi Aktif</button>
-            </div>
-
-            <div class="tab-container">
-                <div class="tab-content active" id="akun">
-                    <div class="content-card">
-                        <h2>Ubah Sandi</h2>
-                        <form>
-                            <div class="form-group">
-                                <label for="pass-lama">Password Lama</label>
-                                <input type="password" id="pass-lama" placeholder="Masukkan Password Lama" />
-                            </div>
-                            <div class="form-group">
-                                <label for="pass-baru">Password Baru</label>
-                                <input type="password" id="pass-baru" placeholder="Masukkan Password Baru" />
-                            </div>
-                            <div class="form-group">
-                                <label for="pass-ulang">Password Baru (ulangi)</label>
-                                <input type="password" id="pass-ulang" placeholder="Masukkan Password Baru (ulangi)" />
-                            </div>
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-primary">Simpan</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="content-card">
-                        <h2>Email & Nomor HP</h2>
-                        <form>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" value="email@gmail.com" readonly />
-                            </div>
-                            <div class="form-group">
-                                <label for="hp">Nomor HP</label>
-                                <div class="input-with-button">
-                                    <input type="text" id="hp" placeholder="Nomor HP Baru" />
-                                    <button type="button" class="btn btn-secondary">
-                                        Kirim Kode
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="otp">Masukkan kode OTP</label>
-                                <input type="text" id="otp" placeholder="Masukkan kode OTP" />
-                            </div>
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-primary">Simpan</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="content-card">
-                        <h2>Akun yang terhubung</h2>
-                        <p>Layanan yang anda gunakan untuk masuk GAPURAEMAS</p>
-                        <div class="linked-account">
-                            <img src="https://i.pravatar.cc/150?img=1" alt="Avatar" class="linked-avatar" />
-                            <div class="linked-info">
-                                <strong>Google</strong>
-                                <span>aba123@gmail.com</span>
-                            </div>
-                            <button class="btn btn-danger">Putuskan Tautan</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tab-content" id="2fa">
-                    <div class="content-card">
-                        <h2 class="no-border">Google Authenticator</h2>
-                        <p class="auth-description">
-                            Keamanan ini berfungsi untuk menjaga akun kamu agar tidak mudah
-                            dibobol. Kalau biasanya kamu masuk ke akun cuma pakai password,
-                            dengan aplikasi ini kamu juga perlu kode angka khusus yang
-                            muncul di Google Authenticator. Kode itu berubah setiap beberapa
-                            detik, jadi hanya kamu yang bisa tahu.
-                        </p>
-
-                        <div class="steps-container">
-                            <div class="step">
-                                <h3>1. Scan QR berikut</h3>
-                                <p>
-                                    Buka aplikasi google authenticator pada ponsel anda lalu
-                                    pindai qr code berikut.
-                                </p>
-                                <img src="assets/pastipaskabbot.png" alt="QR Code Authenticator"
-                                    class="authenticator-qr" />
-                            </div>
-                            <div class="step">
-                                <h3>2. Masukkan kode OTP</h3>
-                                <p>
-                                    Ketikkan 6 digit kode yang tampil pada aplikasi google
-                                    authenticator pada kolom berikut lalu klik "Terapkan".
-                                </p>
-                                <div class="form-group">
-                                    <input type="text" id="otp-2fa" placeholder="••••••" class="otp-input" />
-                                </div>
-                                <button class="btn btn-terapkan">Terapkan</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tab-content" id="sesi-aktif">
-                    <div class="content-card">
-                        <h2 class="session-list-title">Sesi Aktif</h2>
-                        <div class="session-list">
-                            <div class="session-item">
-                                <div class="session-info">
-                                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
-                                    <span class="session-meta">Sejak Senin, 20 Okt 2025 13:30:01</span>
-                                    <span class="session-meta">IP : 172.25.25.1</span>
-                                    <span class="session-meta">User Agent : Mozilla/5.0 (Linux; Android 10; K)
-                                        AppleWebKit/537.36...</span>
-                                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
-                                </div>
-                                <div class="session-action">
-                                    <button class="btn btn-danger btn-akhiri-sesi">
-                                        <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="session-item">
-                                <div class="session-info">
-                                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
-                                    <span class="session-meta">Sejak Senin, 20 Okt 2025 13:30:01</span>
-                                    <span class="session-meta">IP : 172.25.25.1</span>
-                                    <span class="session-meta">User Agent : Mozilla/5.0 (Linux; Android 10; K)
-                                        AppleWebKit/537.36...</span>
-                                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
-                                </div>
-                                <div class="session-action">
-                                    <button class="btn btn-danger btn-akhiri-sesi">
-                                        <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="session-item">
-                                <div class="session-info">
-                                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
-                                    <span class="session-meta">Sejak Senin, 20 Okt 2025 13:30:01</span>
-                                    <span class="session-meta">IP : 172.25.25.1</span>
-                                    <span class="session-meta">User Agent : Mozilla/5.0 (Linux; Android 10; K)
-                                        AppleWebKit/537.36...</span>
-                                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
-                                </div>
-                                <div class="session-action">
-                                    <button class="btn btn-danger btn-akhiri-sesi">
-                                        <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="session-item">
-                                <div class="session-info">
-                                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
-                                    <span class="session-meta">Sejak Senin, 20 Okt 2025 13:30:01</span>
-                                    <span class="session-meta">IP : 172.25.25.1</span>
-                                    <span class="session-meta">User Agent : Mozilla/5.0 (Linux; Android 10; K)
-                                        AppleWebKit/537.36...</span>
-                                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
-                                </div>
-                                <div class="session-action">
-                                    <button class="btn btn-danger btn-akhiri-sesi">
-                                        <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="session-item">
-                                <div class="session-info">
-                                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
-                                    <span class="session-meta">Sejak Senin, 20 Okt 2025 13:30:01</span>
-                                    <span class="session-meta">IP : 172.25.25.1</span>
-                                    <span class="session-meta">User Agent : Mozilla/5.0 (Linux; Android 10; K)
-                                        AppleWebKit/537.36...</span>
-                                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
-                                </div>
-                                <div class="session-action">
-                                    <button class="btn btn-danger btn-akhiri-sesi">
-                                        <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="security-tabs">
+          <button class="tab-link active" data-tab="akun">Akun</button>
+          <button class="tab-link" data-tab="2fa">2FA</button>
+          <button class="tab-link" data-tab="sesi-aktif">Sesi Aktif</button>
         </div>
+
+        <div class="tab-container">
+          <div class="tab-content active" id="akun">
+            <div class="content-card">
+              <h2>Ubah Sandi</h2>
+              <form>
+                <div class="form-group">
+                  <label for="pass-lama">Password Lama</label>
+                  <input
+                    type="password"
+                    id="pass-lama"
+                    placeholder="Masukkan Password Lama"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="pass-baru">Password Baru</label>
+                  <input
+                    type="password"
+                    id="pass-baru"
+                    placeholder="Masukkan Password Baru"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="pass-ulang">Password Baru (ulangi)</label>
+                  <input
+                    type="password"
+                    id="pass-ulang"
+                    placeholder="Masukkan Password Baru (ulangi)"
+                  />
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="content-card">
+              <h2>Email & Nomor HP</h2>
+              <form>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    value="email@gmail.com"
+                    readonly
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="hp">Nomor HP</label>
+                  <div class="input-with-button">
+                    <input type="text" id="hp" placeholder="Nomor HP Baru" />
+                    <button type="button" class="btn btn-secondary">
+                      Kirim Kode
+                    </button>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="otp">Masukkan kode OTP</label>
+                  <input type="text" id="otp" placeholder="Masukkan kode OTP" />
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="content-card">
+              <h2>Akun yang terhubung</h2>
+              <p>Layanan yang anda gunakan untuk masuk GAPURAEMAS</p>
+              <div class="linked-account">
+                <img
+                  src="https://i.pravatar.cc/150?img=1"
+                  alt="Avatar"
+                  class="linked-avatar"
+                />
+                <div class="linked-info">
+                  <strong>Google</strong>
+                  <span>aba123@gmail.com</span>
+                </div>
+                <button class="btn btn-danger">Putuskan Tautan</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="2fa">
+            <div class="content-card">
+              <h2 class="no-border">Google Authenticator</h2>
+              <p class="auth-description">
+                Keamanan ini berfungsi untuk menjaga akun kamu agar tidak mudah
+                dibobol. Kalau biasanya kamu masuk ke akun cuma pakai password,
+                dengan aplikasi ini kamu juga perlu kode angka khusus yang
+                muncul di Google Authenticator. Kode itu berubah setiap beberapa
+                detik, jadi hanya kamu yang bisa tahu.
+              </p>
+
+              <div class="steps-container">
+                <div class="step">
+                  <h3>1. Scan QR berikut</h3>
+                  <p>
+                    Buka aplikasi google authenticator pada ponsel anda lalu
+                    pindai qr code berikut.
+                  </p>
+                  <img
+                    src="assets/pastipaskabbot.png"
+                    alt="QR Code Authenticator"
+                    class="authenticator-qr"
+                  />
+                </div>
+                <div class="step">
+                  <h3>2. Masukkan kode OTP</h3>
+                  <p>
+                    Ketikkan 6 digit kode yang tampil pada aplikasi google
+                    authenticator pada kolom berikut lalu klik "Terapkan".
+                  </p>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      id="otp-2fa"
+                      placeholder="••••••"
+                      class="otp-input"
+                    />
+                  </div>
+                  <button class="btn btn-terapkan">Terapkan</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="sesi-aktif">
+            <div class="content-card">
+              <h2 class="session-list-title">Sesi Aktif</h2>
+              <div class="session-list">
+                <div class="session-item">
+                  <div class="session-info">
+                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
+                    <span class="session-meta"
+                      >Sejak Senin, 20 Okt 2025 13:30:01</span
+                    >
+                    <span class="session-meta">IP : 172.25.25.1</span>
+                    <span class="session-meta"
+                      >User Agent : Mozilla/5.0 (Linux; Android 10; K)
+                      AppleWebKit/537.36...</span
+                    >
+                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
+                  </div>
+                  <div class="session-action">
+                    <button class="btn btn-danger btn-akhiri-sesi">
+                      <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
+                    </button>
+                  </div>
+                </div>
+                <div class="session-item">
+                  <div class="session-info">
+                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
+                    <span class="session-meta"
+                      >Sejak Senin, 20 Okt 2025 13:30:01</span
+                    >
+                    <span class="session-meta">IP : 172.25.25.1</span>
+                    <span class="session-meta"
+                      >User Agent : Mozilla/5.0 (Linux; Android 10; K)
+                      AppleWebKit/537.36...</span
+                    >
+                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
+                  </div>
+                  <div class="session-action">
+                    <button class="btn btn-danger btn-akhiri-sesi">
+                      <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
+                    </button>
+                  </div>
+                </div>
+                <div class="session-item">
+                  <div class="session-info">
+                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
+                    <span class="session-meta"
+                      >Sejak Senin, 20 Okt 2025 13:30:01</span
+                    >
+                    <span class="session-meta">IP : 172.25.25.1</span>
+                    <span class="session-meta"
+                      >User Agent : Mozilla/5.0 (Linux; Android 10; K)
+                      AppleWebKit/537.36...</span
+                    >
+                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
+                  </div>
+                  <div class="session-action">
+                    <button class="btn btn-danger btn-akhiri-sesi">
+                      <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
+                    </button>
+                  </div>
+                </div>
+                <div class="session-item">
+                  <div class="session-info">
+                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
+                    <span class="session-meta"
+                      >Sejak Senin, 20 Okt 2025 13:30:01</span
+                    >
+                    <span class="session-meta">IP : 172.25.25.1</span>
+                    <span class="session-meta"
+                      >User Agent : Mozilla/5.0 (Linux; Android 10; K)
+                      AppleWebKit/537.36...</span
+                    >
+                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
+                  </div>
+                  <div class="session-action">
+                    <button class="btn btn-danger btn-akhiri-sesi">
+                      <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
+                    </button>
+                  </div>
+                </div>
+                <div class="session-item">
+                  <div class="session-info">
+                    <h3>Portal GapuraEmas Kabupaten Pasuruan</h3>
+                    <span class="session-meta"
+                      >Sejak Senin, 20 Okt 2025 13:30:01</span
+                    >
+                    <span class="session-meta">IP : 172.25.25.1</span>
+                    <span class="session-meta"
+                      >User Agent : Mozilla/5.0 (Linux; Android 10; K)
+                      AppleWebKit/537.36...</span
+                    >
+                    <span class="session-meta">Lokasi tidak terdeteksi.</span>
+                  </div>
+                  <div class="session-action">
+                    <button class="btn btn-danger btn-akhiri-sesi">
+                      <i class="fas fa-sign-out-alt"></i> Akhiri Sesi
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <div class="modal-overlay" id="konfirmasi-modal">
-        <div class="modal-content">
-            <div class="modal-icon">
-                <i class="fas fa-exclamation"></i>
-            </div>
-            <h2>Apakah Anda Yakin</h2>
-            <p>
-                Perangkat yang terkait dengan sesi ini akan di logout secara paksa
-            </p>
-            <div class="modal-actions">
-                <button class="btn btn-success" id="btn-modal-confirm">
-                    Ya, Akhiri!
-                </button>
-                <button class="btn btn-danger" id="btn-modal-cancel">Batalkan</button>
-            </div>
+      <div class="modal-content">
+        <div class="modal-icon">
+          <i class="fas fa-exclamation"></i>
         </div>
+        <h2>Apakah Anda Yakin</h2>
+        <p>
+          Perangkat yang terkait dengan sesi ini akan di logout secara paksa
+        </p>
+        <div class="modal-actions">
+          <button class="btn btn-success" id="btn-modal-confirm">
+            Ya, Akhiri!
+          </button>
+          <button class="btn btn-danger" id="btn-modal-cancel">Batalkan</button>
+        </div>
+      </div>
     </div>
 
     <div class="fab-container">
-        <button class="fab" aria-haspopup="true" aria-expanded="false" aria-label="Aksesibilitas">
-            <i class="fas fa-universal-access"></i>
-        </button>
+      <button
+        class="fab"
+        aria-haspopup="true"
+        aria-expanded="false"
+        aria-label="Aksesibilitas"
+      >
+        <i class="fas fa-universal-access"></i>
+      </button>
     </div>
 
     <footer>
-        <div class="container footer-content">
-            <p class="copyright">
-                COPYRIGHT © 2022–2025 Diskominfo Kabupaten Pasuruan
-            </p>
-            <p class="gov-text">Pemerintah Daerah Kabupaten Pasuruan</p>
-        </div>
+      <div class="container footer-content">
+        <p class="copyright">
+          COPYRIGHT © 2022–2025 Diskominfo Kabupaten Pasuruan
+        </p>
+        <p class="gov-text">Pemerintah Daerah Kabupaten Pasuruan</p>
+      </div>
     </footer>
 
     <nav class="mobile-nav">
-        <a href="beranda.html">
-            <i class="fas fa-home"></i>
-            <span>Beranda</span>
-        </a>
-        <a href="personalisasi.html">
-            <i class="fas fa-user-cog"></i>
-            <span>Personalisasi</span>
-        </a>
-        <a href="keamanan.html" class="active">
-            <i class="fas fa-shield-alt"></i>
-            <span>Keamanan</span>
-        </a>
-        <a href="riwayat.html">
-            <i class="fas fa-history"></i>
-            <span>Riwayat</span>
-        </a>
+      <a href="beranda.html">
+        <i class="fas fa-home"></i>
+        <span>Beranda</span>
+      </a>
+      <a href="personalisasi.html">
+        <i class="fas fa-user-cog"></i>
+        <span>Personalisasi</span>
+      </a>
+      <a href="keamanan.html" class="active">
+        <i class="fas fa-shield-alt"></i>
+        <span>Keamanan</span>
+      </a>
+      <a href="riwayat.html">
+        <i class="fas fa-history"></i>
+        <span>Riwayat</span>
+      </a>
     </nav>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // --- BAGIAN 1: LOGIKA TAB FADE-IN ---
-            // ... (Logika tab Anda ada di sini) ...
-            const tabButtons = document.querySelectorAll(
-                ".security-tabs .tab-link"
-            );
-            const tabContents = document.querySelectorAll(
-                ".tab-container .tab-content"
-            );
-            if (tabButtons.length > 0 && tabContents.length > 0) {
-                tabButtons.forEach((button) => {
-                    button.addEventListener("click", () => {
-                        const targetId = button.getAttribute("data-tab");
-                        tabButtons.forEach((btn) => btn.classList.remove("active"));
-                        button.classList.add("active");
-                        tabContents.forEach((content) => {
-                            content.classList.remove("active");
-                        });
-                        const targetContent = document.getElementById(targetId);
-                        if (targetContent) {
-                            targetContent.classList.add("active");
-                        }
-                    });
-                });
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- BAGIAN 1: LOGIKA TAB FADE-IN ---
+        // ... (Logika tab Anda ada di sini) ...
+        const tabButtons = document.querySelectorAll(
+          ".security-tabs .tab-link"
+        );
+        const tabContents = document.querySelectorAll(
+          ".tab-container .tab-content"
+        );
+        if (tabButtons.length > 0 && tabContents.length > 0) {
+          tabButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              const targetId = button.getAttribute("data-tab");
+              tabButtons.forEach((btn) => btn.classList.remove("active"));
+              button.classList.add("active");
+              tabContents.forEach((content) => {
+                content.classList.remove("active");
+              });
+              const targetContent = document.getElementById(targetId);
+              if (targetContent) {
+                targetContent.classList.add("active");
+              }
+            });
+          });
+        }
+
+        // --- BAGIAN 2: LOGIKA MODAL KONFIRMASI ---
+        // ... (Logika modal Anda ada di sini) ...
+        const modal = document.getElementById("konfirmasi-modal");
+        const endSessionButtons = document.querySelectorAll(".btn-akhiri-sesi");
+        const btnModalCancel = document.getElementById("btn-modal-cancel");
+        const btnModalConfirm = document.getElementById("btn-modal-confirm");
+        if (modal && btnModalCancel && btnModalConfirm) {
+          endSessionButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              modal.classList.add("active");
+            });
+          });
+          btnModalCancel.addEventListener("click", () => {
+            modal.classList.remove("active");
+          });
+          btnModalConfirm.addEventListener("click", () => {
+            console.log("Sesi diakhiri!");
+            modal.classList.remove("active");
+          });
+          modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+              modal.classList.remove("active");
             }
+          });
+        }
 
-            // --- BAGIAN 2: LOGIKA MODAL KONFIRMASI ---
-            // ... (Logika modal Anda ada di sini) ...
-            const modal = document.getElementById("konfirmasi-modal");
-            const endSessionButtons = document.querySelectorAll(".btn-akhiri-sesi");
-            const btnModalCancel = document.getElementById("btn-modal-cancel");
-            const btnModalConfirm = document.getElementById("btn-modal-confirm");
-            if (modal && btnModalCancel && btnModalConfirm) {
-                endSessionButtons.forEach((button) => {
-                    button.addEventListener("click", () => {
-                        modal.classList.add("active");
-                    });
-                });
-                btnModalCancel.addEventListener("click", () => {
-                    modal.classList.remove("active");
-                });
-                btnModalConfirm.addEventListener("click", () => {
-                    console.log("Sesi diakhiri!");
-                    modal.classList.remove("active");
-                });
-                modal.addEventListener("click", (e) => {
-                    if (e.target === modal) {
-                        modal.classList.remove("active");
-                    }
-                });
-            }
+        // --- BAGIAN 3: LOGIKA DROPDOWN (NOTIFIKASI & PROFIL) ---
+        const notifIcon = document.querySelector(".notification-icon");
+        const notifPanel = document.getElementById("notification-panel");
+        const notifCloseBtn = document.getElementById("notification-close-btn");
 
-            // --- BAGIAN 3: LOGIKA DROPDOWN (NOTIFIKASI & PROFIL) ---
-            const notifIcon = document.querySelector(".notification-icon");
-            const notifPanel = document.getElementById("notification-panel");
-            const notifCloseBtn = document.getElementById("notification-close-btn");
+        const userIconBtn = document.getElementById("user-icon-btn");
+        const profileDropdown = document.getElementById("profile-dropdown");
+        const profileCloseBtn = document.getElementById("profile-close-btn"); // [BARU]
 
-            const userIconBtn = document.getElementById("user-icon-btn");
-            const profileDropdown = document.getElementById("profile-dropdown");
-            const profileCloseBtn = document.getElementById("profile-close-btn"); // [BARU]
+        if (
+          notifIcon &&
+          notifPanel &&
+          notifCloseBtn &&
+          userIconBtn &&
+          profileDropdown &&
+          profileCloseBtn
+        ) {
+          // [DIUBAH]
 
+          // 1. Klik Lonceng
+          notifIcon.addEventListener("click", function (event) {
+            event.stopPropagation();
+            notifPanel.classList.toggle("active");
+            profileDropdown.classList.remove("active"); // Tutup profil
+          });
+
+          // 2. Klik Tombol 'X' Notifikasi
+          notifCloseBtn.addEventListener("click", function () {
+            notifPanel.classList.remove("active");
+          });
+
+          // 3. Klik Ikon Profil
+          userIconBtn.addEventListener("click", function (event) {
+            event.stopPropagation();
+            profileDropdown.classList.toggle("active");
+            notifPanel.classList.remove("active"); // Tutup notifikasi
+          });
+
+          // 4. [BARU] Klik Tombol 'X' Profil
+          profileCloseBtn.addEventListener("click", function () {
+            profileDropdown.classList.remove("active");
+          });
+
+          // 5. Klik di Luar Panel
+          document.addEventListener("click", function (event) {
+            // Cek notifikasi
             if (
-                notifIcon &&
-                notifPanel &&
-                notifCloseBtn &&
-                userIconBtn &&
-                profileDropdown &&
-                profileCloseBtn
+              notifPanel.classList.contains("active") &&
+              !notifPanel.contains(event.target) &&
+              !notifIcon.contains(event.target)
             ) {
-                // [DIUBAH]
-
-                // 1. Klik Lonceng
-                notifIcon.addEventListener("click", function (event) {
-                    event.stopPropagation();
-                    notifPanel.classList.toggle("active");
-                    profileDropdown.classList.remove("active"); // Tutup profil
-                });
-
-                // 2. Klik Tombol 'X' Notifikasi
-                notifCloseBtn.addEventListener("click", function () {
-                    notifPanel.classList.remove("active");
-                });
-
-                // 3. Klik Ikon Profil
-                userIconBtn.addEventListener("click", function (event) {
-                    event.stopPropagation();
-                    profileDropdown.classList.toggle("active");
-                    notifPanel.classList.remove("active"); // Tutup notifikasi
-                });
-
-                // 4. [BARU] Klik Tombol 'X' Profil
-                profileCloseBtn.addEventListener("click", function () {
-                    profileDropdown.classList.remove("active");
-                });
-
-                // 5. Klik di Luar Panel
-                document.addEventListener("click", function (event) {
-                    // Cek notifikasi
-                    if (
-                        notifPanel.classList.contains("active") &&
-                        !notifPanel.contains(event.target) &&
-                        !notifIcon.contains(event.target)
-                    ) {
-                        notifPanel.classList.remove("active");
-                    }
-                    // Cek profil
-                    if (
-                        profileDropdown.classList.contains("active") &&
-                        !profileDropdown.contains(event.target) &&
-                        !userIconBtn.contains(event.target)
-                    ) {
-                        profileDropdown.classList.remove("active");
-                    }
-                });
+              notifPanel.classList.remove("active");
             }
-        });
+            // Cek profil
+            if (
+              profileDropdown.classList.contains("active") &&
+              !profileDropdown.contains(event.target) &&
+              !userIconBtn.contains(event.target)
+            ) {
+              profileDropdown.classList.remove("active");
+            }
+          });
+        }
+      });
     </script>
-</body>
-
+  </body>
 </html>

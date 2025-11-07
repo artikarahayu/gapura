@@ -1,9 +1,6 @@
-/* --- Global Stylesheet (Final Fixed Navbar + Mobile Bottom Nav) --- */
-
 :root {
     --primary-orange: #f15a24;
     --bg-light: #ffffff;
-    /* Latar belakang abu-abu muda */
     --text-dark: #333333;
     --text-grey: #777777;
     --white: #ffffff;
@@ -16,17 +13,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
 }
 
 body {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-display: swap;
     background-color: var(--bg-light);
-    /* [PERBAIKAN] Kembali ke abu-abu muda */
     color: var(--text-dark);
     line-height: 1.6;
-
-    /* [PERBAIKAN LOMPATAN] Padding untuk navbar atas ada di sini */
     padding-top: 85px;
 }
 
@@ -83,7 +77,7 @@ nav a {
     background-color: transparent;
     display: inline-block;
     font-size: 0.9rem;
-    /* [DIHAPUS ANIMASI] Transisi warna, background, dan transform dihapus untuk menghilangkan animasi saat pindah navbar */
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-separator {
@@ -96,13 +90,13 @@ nav a {
 nav a:hover {
     background-color: transparent;
     color: var(--primary-orange);
-    /* [DIHAPUS ANIMASI] Transform translateY dihapus untuk menghilangkan animasi saat hover navbar */
+    transform: translateY(-2px);
 }
 
 nav a.active {
     background-color: var(--primary-orange);
     color: var(--white);
-    /* [DIHAPUS ANIMASI] Transform translateY dihapus untuk menghilangkan animasi pada navbar aktif */
+    transform: translateY(0);
 }
 
 nav a.active:hover {
@@ -148,7 +142,6 @@ nav a.active:hover {
     margin-left: auto;
     margin-right: 0;
     position: relative;
-    /* [TAMBAHKAN INI] Agar dropdown bisa diposisikan */
 }
 
 .notification-icon,
@@ -212,8 +205,8 @@ footer {
    3. KONTEN UTAMA & ANIMASI
    ================================================ */
 main {
-    /* padding-top: 85px; (Sudah pindah ke body) */
-    animation: fadeIn 0.6s ease-out forwards;
+    animation: fadeIn 1s ease-out forwards;
+    -webkit-animation: fadeIn 1s ease-out forwards;
 }
 
 @keyframes fadeIn {
@@ -337,7 +330,6 @@ main {
 
 .btn-danger {
     background-color: #8c1007;
-    /* Merah kustom dari keamanan.css */
     color: var(--white);
     border: none;
 }
@@ -384,14 +376,12 @@ main {
    ================================================ */
 
 /* Tablet ( < 768px ) */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
 
     /* -- Body -- */
     body {
-        padding-top: 76px;
-        /* Disesuaikan navbar mobile */
-        padding-bottom: 80px;
-        /* Pendorong untuk nav bawah */
+        padding-top: 66px;
+        padding-bottom: 70px;
     }
 
     /* -- Navbar Atas (Mobile Diperbesar) -- */
@@ -436,7 +426,7 @@ main {
 
     /* -- Konten Utama -- */
     main {
-        /* padding-top: 70px; (Pindah ke body) */
+        margin-top: -38px;
     }
 
     /* -- Tampilkan Navbar Bawah -- */
@@ -453,13 +443,9 @@ main {
 
 /* Mobile ( < 480px ) */
 @media (max-width: 480px) {
-
-    /* -- Body -- */
     body {
-        padding-top: 66px;
-        /* Disesuaikan navbar mobile */
+        padding-top: 56px;
         padding-bottom: 70px;
-        /* Pendorong untuk nav bawah */
     }
 
     /* -- Navbar Atas (Mobile Diperbesar) -- */
@@ -469,12 +455,10 @@ main {
 
     .logo img {
         width: 35px;
-        /* [PERBAIKAN] Dikecilkan sedikit */
     }
 
     .user-info {
         gap: 10px;
-        /* [PERBAIKAN] Didekatkan */
     }
 
     .notification-icon,
@@ -486,12 +470,10 @@ main {
         padding: 0 15px;
     }
 
-    /* -- Konten Utama -- */
     main {
-        /* padding-top: 60px; (Pindah ke body) */
+        margin-top: -38px;
     }
 
-    /* -- Posisi FAB di Mobile Kecil -- */
     .fab-container {
         bottom: 66px;
         right: 20px;
@@ -508,13 +490,10 @@ main {
     width: 340px;
     max-width: 90vw;
     background-color: var(--white);
-    /* Latar belakang PUTIH */
     border-radius: var(--border-radius);
     border: 1px solid #dcdcdc;
-    /* Border agar terlihat */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     z-index: 1001;
-
     opacity: 0;
     transform: translateY(-10px) scale(0.95);
     visibility: hidden;
@@ -581,12 +560,7 @@ main {
     text-decoration: none;
     color: var(--text-dark);
     cursor: default;
-    /* Membuatnya terlihat seperti teks biasa */
-    /* Transisi dan text-decoration dihapus */
 }
-
-/* [DIHAPUS] .notification-item:hover { ... } */
-/* Efek hover dihapus agar tidak terasa seperti tombol */
 
 .notification-item:last-child {
     border-bottom: none;
@@ -598,11 +572,8 @@ main {
     height: 10px;
     border-radius: 50%;
     background-color: #28a745;
-    /* HIJAU */
     flex-shrink: 0;
 }
-
-/* [DIHAPUS] .notification-item.unread .notification-dot tidak perlu lagi */
 
 .notification-text {
     font-size: 0.9rem;
@@ -648,10 +619,7 @@ main {
     border: 1px solid #dcdcdc;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     z-index: 1001;
-
     padding: 0;
-    /* [DIUBAH] Padding sekarang diatur oleh header/body */
-
     opacity: 0;
     transform: translateY(-10px) scale(0.95);
     visibility: hidden;
@@ -669,9 +637,7 @@ main {
 .profile-dropdown-header {
     display: flex;
     justify-content: flex-end;
-    /* Pindahkan X ke kanan */
     padding: 5px 5px 0 0;
-    /* Padding kecil */
 }
 
 /* [BARU] Tombol Close (X) untuk Profil */
@@ -679,7 +645,6 @@ main {
     background: none;
     border: none;
     font-size: 1.5rem;
-    /* Sedikit lebih kecil dari notifikasi */
     font-weight: 400;
     color: var(--text-grey);
     cursor: pointer;
@@ -696,7 +661,6 @@ main {
 /* [BARU] Body untuk tombol Logout */
 .profile-dropdown-body {
     padding: 5px 10px 10px 10px;
-    /* Padding di sekitar tombol */
 }
 
 /* [DIUBAH] Tombol Logout dengan Ikon */
@@ -704,11 +668,9 @@ main {
     width: 100%;
     text-align: center;
     display: flex;
-    /* Menggunakan flex untuk ikon + teks */
     align-items: center;
     justify-content: center;
     gap: 8px;
-    /* Jarak antara ikon dan teks */
 }
 
 /* Penyesuaian Posisi di Mobile */

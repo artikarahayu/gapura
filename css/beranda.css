@@ -1,5 +1,3 @@
-/* --- CSS Khusus untuk Halaman Beranda (beranda.html) --- */
-
 /* ================================================
    1. HERO SECTION (Selamat Datang)
    ================================================ */
@@ -7,7 +5,6 @@
     background-color: var(--white);
     padding: 40px 0 40px;
     position: relative;
-    /* [DIHAPUS] padding-top (Pindah ke body) */
 }
 
 .hero-container {
@@ -171,7 +168,7 @@
 
 .search-bar input {
     font-family: "Poppins", sans-serif;
-    width: 300px;
+    width: 500px;
     padding: 10px 40px 10px 15px;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
@@ -225,10 +222,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* Mendorong tombol ke bawah (Desktop) */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    /* [PERBAIKAN] Aktifkan untuk tombol mobile */
 }
 
 .app-card:hover {
@@ -239,9 +234,7 @@
 .card-main {
     display: flex;
     align-items: center;
-    /* Logo & teks rata tengah vertikal (Desktop) */
     margin-bottom: 20px;
-    /* Jarak ke tombol (Desktop) */
 }
 
 .app-info {
@@ -270,7 +263,6 @@
     object-fit: contain;
     align-self: center;
     margin-right: 20px;
-    /* Jarak logo & teks (Desktop) */
 }
 
 .app-status {
@@ -281,7 +273,6 @@
     border-radius: 8px;
     text-align: center;
     margin-left: auto;
-    /* Tombol rata kanan (Desktop) */
     width: fit-content;
     display: block;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -305,11 +296,6 @@
     color: var(--primary-orange);
     border: 1px solid var(--primary-orange);
 }
-
-/* ================================================
-   5. FAB (FLOATING ACTION BUTTON)
-   ================================================ */
-/* (Kode FAB Anda ada di global.css) */
 
 /* ================================================
    6. RESPONSIVE
@@ -358,8 +344,6 @@
 
 /* Mobile ( < 768px ) */
 @media (max-width: 768px) {
-
-    /* -- Hero (Layout 2 kolom kecil) -- */
     .hero {
         padding-top: 20px;
         padding-bottom: 30px;
@@ -383,25 +367,25 @@
     .orange-circle {
         width: 220px;
         height: 220px;
-        top: 0px;
+        top: -70px;
         right: -80px;
     }
 
     .hero-image .logo-pasuruan {
         width: 100px;
         right: -5px;
-        top: 35px;
+        top: -15px;
     }
 
-    /* -- App Section (Jarak Atas Diperkecil) -- */
+    /* -- App Section -- */
     .app-section {
         padding-top: 20px;
     }
 
-    /* -- App Nav (Search di atas tabs) -- */
+    /* -- App Nav -- */
     .app-navigation {
         flex-direction: column-reverse;
-        align-items: stretch;
+        align-items: center;
         gap: 15px;
         margin-bottom: 25px;
     }
@@ -426,42 +410,33 @@
         width: 100%;
     }
 
-    /* -- [PERBAIKAN] App Grid (1 kolom, tombol di kanan atas) -- */
+    /* -- App Grid -- */
     .app-grid {
         grid-template-columns: 1fr;
-        /* [DIUBAH] 1 kolom */
         gap: 15px;
-        /* Jarak antar kartu */
     }
 
     .app-card {
         padding: 15px;
-        /* Padding di dalam kartu */
     }
 
     .app-logo-placeholder {
         width: 70px;
-        /* Ukuran logo mobile */
         height: 70px;
         align-self: center;
         margin-right: 15px;
-        /* Jarak logo & teks */
     }
 
     .card-main {
         flex-direction: row;
         align-items: center;
-        /* Rata tengah vertikal */
         margin-bottom: 0;
-        /* Hapus margin-bottom */
-        /* Beri ruang agar teks tidak tertimpa tombol */
         padding-right: 90px;
     }
 
     .app-info {
         margin-right: 0;
         text-align: left;
-        /* Teks rata kiri */
     }
 
     .app-info h3 {
@@ -479,17 +454,12 @@
     }
 
     .app-status {
-        /* [PERBAIKAN] Pindah ke pojok kanan atas */
         position: absolute;
         bottom: 10px;
         right: 10px;
-
         margin: 0;
-        /* Hapus margin */
         padding: 4px 8px;
-        /* Perkecil tombol */
         font-size: 0.75rem;
-        /* Perkecil font tombol */
     }
 
     .app-status.status-soon {
@@ -501,8 +471,6 @@
         pointer-events: none;
         cursor: default;
     }
-
-    /* Akhir Perbaikan App Grid */
 
     /* -- Banner (Geser Kanan-Kiri) -- */
     .banner-section {
@@ -530,16 +498,12 @@
     }
 }
 
-/* ================================================
-   7. POPUP NOTIFIKASI SHOPEE-STYLE
-   ================================================ */
+/* ======== DESAIN POPUP ======== */
+
 .popup-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -555,69 +519,155 @@
 }
 
 .popup-modal {
-    background-color: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    max-width: 400px;
+    background: var(--white, #ffffff);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* DIMODIFIKASI: Dikecilkan */
+    max-width: 450px;
     width: 90%;
     position: relative;
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
+    padding-top: 40px;
+    transform: translateY(20px) scale(0.98);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    opacity: 0;
+    backdrop-filter: none;
+    border: none;
 }
 
 .popup-overlay.active .popup-modal {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    opacity: 1;
 }
 
-.popup-header {
-    display: flex;
-    align-items: center;
-    padding: 20px 20px 10px;
-    border-bottom: 1px solid var(--border-color);
-    position: relative;
-}
-
-.popup-icon {
-    width: 50px;
-    height: 50px;
-    background-color: var(--primary-orange);
+/* Wrapper untuk Ikon di atas */
+.popup-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg,
+            var(--primary-orange, #ff0000ff),
+            #ff8c5a);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
-    font-size: 24px;
-    flex-shrink: 0;
+    color: var(--white, #ffffff);
+    font-size: 36px;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid var(--white, #ffffff);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    animation: pulseAlert 2s ease-in-out infinite;
+}
+
+/* Konten di dalam modal */
+.popup-content {
+    padding: 10px 20px;
+    text-align: center;
 }
 
 .popup-title {
     font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin: 0;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 15px 0;
+}
+
+.popup-body {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+.popup-body p {
+    margin-bottom: 15px;
+}
+
+.popup-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer untuk tombol aksi */
+.popup-footer {
+    padding: 10px 20px;
+    background-color: #ffffffff;
+    border-top: 1px solid #eee;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    /* DIMODIFIKASI: Tombol di tengah */
     text-align: center;
-    flex-grow: 1;
 }
 
-.popup-close-btn {
-    background: none;
+/* Tombol Aksi Utama */
+.btn-primary-popup {
+    background-color: var(--primary-orange, #f15a24);
+    color: var(--white, #ffffff);
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 25px;
     border: none;
-    font-size: 24px;
-    color: var(--text-grey);
+    border-radius: 8px;
     cursor: pointer;
-    padding: 0;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: background-color 0.2s ease;
-    flex-shrink: 0;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
-.popup-close-btn:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+.btn-primary-popup:hover {
+    background-color: #d13a0a;
+    transform: scale(1);
+}
+
+/* Keyframe untuk animasi denyut */
+@keyframes pulseAlert {
+    0% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.05);
+        box-shadow: 0 6px 20px rgba(241, 90, 36, 0.4);
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+}
+
+@keyframes ringBell {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    15% {
+        transform: rotate(10deg);
+    }
+
+    30% {
+        transform: rotate(-8deg);
+    }
+
+    45% {
+        transform: rotate(6deg);
+    }
+
+    60% {
+        transform: rotate(-4deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.popup-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-orange);
+    margin: 0;
+    letter-spacing: 0.5px;
 }
 
 .popup-body {
@@ -625,66 +675,27 @@
     text-align: center;
 }
 
-.popup-body h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 10px;
-}
-
 .popup-body p {
     font-size: 1rem;
-    color: var(--text-grey);
-    line-height: 1.5;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin: 0;
 }
 
-/* Mobile Kecil ( < 480px ) */
+/* Responsif Mobile */
 @media (max-width: 480px) {
-
-    /* -- Hero (Lebih kecil lagi) -- */
-    .hero-text h2 {
-        font-size: 28px;
-    }
-
-    .hero-text p {
-        font-size: 0.9rem;
-    }
-
-    .orange-circle {
-        width: 180px;
-        height: 180px;
-        top: -45px;
-        right: -60px;
-    }
-
-    .hero-image .logo-pasuruan {
-        top: -2px;
-        width: 80px;
-        right: -5px;
-    }
-
-    .app-tabs {
-        justify-content: center;
-        /* Tengahkan tabs jika muat */
-    }
-
-    /* [DIHAPUS] Aturan .app-grid (sudah 1 kolom dari 768px) */
-
-    /* -- Popup -- */
     .popup-modal {
+        border-radius: 16px;
         max-width: 90%;
-        margin: 20px;
     }
 
-    .popup-header {
-        padding: 15px 15px 8px;
+    .popup-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
     }
 
-    .popup-body {
-        padding: 15px;
-    }
-
-    .popup-body h3 {
+    .popup-title {
         font-size: 1.3rem;
     }
 
