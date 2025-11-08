@@ -28,7 +28,7 @@
           class="logo-image"
         />
         <!-- [PERBAIKAN] Diubah ke H1 agar konsisten dengan global.css -->
-        <h1><span class="orange">GAPURA</span>EMAS</h1>
+        <h1>GAPURA<span class="orange">EMAS</span></h1>
       </div>
       <nav>
         <a href="index.html" class="active">Beranda</a>
@@ -400,7 +400,7 @@
                 appCards.forEach((card) => {
                   card.style.display = "flex";
                 });
-              } else if (tabText === "Aplikasi Terbaru") {
+              } else if (tabText === "Terbaru") {
                 appCards.forEach((card) => {
                   const status = card.querySelector(".app-status");
                   if (status && status.classList.contains("status-open")) {

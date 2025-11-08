@@ -1,3 +1,9 @@
-# TODO: Hapus Animasi Navbar
+# TODO: Update Mobile Display for Header Navbar and App Grid
 
-- [ ] Edit css/global.css: Hapus transition dan transform pada nav a, nav a:hover, nav a.active, dan tambahkan komentar pada bagian yang diubah.
+## Tasks
+
+- [x] Edit css/global.css: Display "gapuraemas" text beside logo in mobile mode (max-width: 480px and 768px)
+- [x] Edit css/beranda.css: Change app-grid to 2 columns in mobile (<768px)
+- [x] Add comments in CSS for updated sections
+- [x] Test mobile display in browser dev tools
+- [x] Verify no conflicts with other responsive styles

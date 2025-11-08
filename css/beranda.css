@@ -410,33 +410,41 @@
         width: 100%;
     }
 
+    /* [UPDATE] Ubah app-grid menjadi 2 kolom di mobile untuk tampilan appcard */
     /* -- App Grid -- */
     .app-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
 
+    /* [UPDATE] Ubah layout app-card mobile menjadi vertical seperti app store: logo atas, judul bawah */
     .app-card {
         padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between; /* [TAMBAH] Pastikan button tetap di dalam card */
+        height: 180px; /* [TAMBAH] Tetapkan tinggi card untuk konsistensi */
+    }
+
+    .card-main {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+        flex-grow: 1; /* [TAMBAH] Biarkan main content mengisi ruang */
     }
 
     .app-logo-placeholder {
         width: 70px;
         height: 70px;
-        align-self: center;
-        margin-right: 15px;
-    }
-
-    .card-main {
-        flex-direction: row;
-        align-items: center;
-        margin-bottom: 0;
-        padding-right: 90px;
+        margin-right: 0;
+        margin-bottom: 10px;
     }
 
     .app-info {
         margin-right: 0;
-        text-align: left;
+        text-align: center;
     }
 
     .app-info h3 {
@@ -446,20 +454,17 @@
     }
 
     .app-info p {
-        display: block;
-        font-size: 0.8rem;
-        color: var(--text-grey);
-        margin-top: 0;
-        line-height: 1.3;
+        display: none; /* [TAMBAH] Sembunyikan deskripsi untuk tampilan app store yang clean */
     }
 
     .app-status {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
+        position: static;
         margin: 0;
-        padding: 4px 8px;
+        padding: 6px 12px;
         font-size: 0.75rem;
+        width: 100%;
+        text-align: center;
+        align-self: stretch; /* [TAMBAH] Pastikan button memenuhi lebar card */
     }
 
     .app-status.status-soon {
