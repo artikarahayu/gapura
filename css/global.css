@@ -111,7 +111,7 @@ nav a.active:hover {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0px;
 }
 
 .logo img {
@@ -404,7 +404,7 @@ main {
     .logo h1 {
         display: block;
         font-size: 1rem;
-        margin-left: 8px;
+        margin-left: 5px;
     }
 
     .logo img {
