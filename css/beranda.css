@@ -668,26 +668,6 @@
     }
 }
 
-.popup-title {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--primary-orange);
-    margin: 0;
-    letter-spacing: 0.5px;
-}
-
-.popup-body {
-    padding: 20px;
-    text-align: center;
-}
-
-.popup-body p {
-    font-size: 1rem;
-    color: var(--text-dark);
-    line-height: 1.6;
-    margin: 0;
-}
-
 /* Responsif Mobile */
 @media (max-width: 480px) {
     .popup-modal {
@@ -706,6 +686,165 @@
     }
 
     .popup-body p {
+        font-size: 0.9rem;
+    }
+}
+
+/* ======== DESAIN POPUP APP DETAIL UNTUK MOBILE ======== */
+
+.app-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001; /* Lebih tinggi dari popup notifikasi */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.app-popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.app-popup-modal {
+    background: var(--white, #ffffff);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    padding: 20px;
+    transform: translateY(20px) scale(0.98);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    opacity: 0;
+    backdrop-filter: none;
+    border: none;
+}
+
+.app-popup-overlay.active .app-popup-modal {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* Tombol Close di kanan atas */
+.app-popup-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-grey);
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.2s ease;
+}
+
+.app-popup-close-btn:hover {
+    color: var(--primary-orange);
+}
+
+/* Wrapper untuk Ikon App */
+.app-popup-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-popup-icon-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Konten di dalam modal */
+.app-popup-content {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.app-popup-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 15px 0;
+}
+
+.app-popup-body {
+    font-size: 1rem;
+    color: var(--text-grey);
+    line-height: 1.6;
+}
+
+.app-popup-body p {
+    margin: 0;
+}
+
+/* Footer untuk tombol aksi */
+.app-popup-footer {
+    text-align: center;
+}
+
+/* Tombol Aksi Utama */
+.app-popup-action-btn {
+    background-color: var(--primary-orange);
+    color: var(--white);
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    width: 100%;
+}
+
+.app-popup-action-btn:hover:not(.disabled) {
+    background-color: #d13a0a;
+    transform: scale(1.02);
+}
+
+.app-popup-action-btn.disabled {
+    background-color: var(--text-grey);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Responsif Mobile untuk App Popup */
+@media (max-width: 480px) {
+    .app-popup-modal {
+        border-radius: 16px;
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .app-popup-icon-wrapper {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 15px;
+    }
+
+    .app-popup-title {
+        font-size: 1.3rem;
+    }
+
+    .app-popup-body p {
+        font-size: 0.9rem;
+    }
+
+    .app-popup-action-btn {
+        padding: 10px 25px;
         font-size: 0.9rem;
     }
 }

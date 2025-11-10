@@ -163,10 +163,19 @@
               />
               <div class="app-info">
                 <h3>Sepakat</h3>
-                <p>Aplikasi perizinan online kapan saja dan dimana saja</p>
+                <p>
+                  Aplikasi perizinan online kapan saja dan dimana saja hayoloh
+                  cobak aja dulu mungkin siapa tau cocok ya gak,cocok gaspol aja
+                  wes buat lanjut sepakat
+                </p>
               </div>
             </div>
-            <a href="#" class="app-status status-open">Buka</a>
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              class="app-status status-open"
+              >Buka</a
+            >
           </div>
           <div class="app-card">
             <div class="card-main">
@@ -180,7 +189,12 @@
                 <p>Aplikasi perizinan online kapan saja dan dimana saja</p>
               </div>
             </div>
-            <a href="#" class="app-status status-open">Buka</a>
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              class="app-status status-open"
+              >Buka</a
+            >
           </div>
           <div class="app-card">
             <div class="card-main">
@@ -345,6 +359,29 @@
       </div>
     </div>
 
+    <!-- Popup App Detail untuk Mobile -->
+    <div id="app-popup-overlay" class="app-popup-overlay">
+      <div class="app-popup-modal">
+        <button class="app-popup-close-btn" id="app-popup-close-btn">
+          &times;
+        </button>
+        <div class="app-popup-icon-wrapper">
+          <img id="app-popup-icon" src="" alt="App Icon" />
+        </div>
+        <div class="app-popup-content">
+          <h3 id="app-popup-title">Nama Aplikasi</h3>
+          <div class="app-popup-body">
+            <p id="app-popup-description">Deskripsi aplikasi lengkap.</p>
+          </div>
+        </div>
+        <div class="app-popup-footer">
+          <button class="app-popup-action-btn" id="app-popup-action-btn">
+            Buka
+          </button>
+        </div>
+      </div>
+    </div>
+
     <div class="fab-container">
       <button
         class="fab"
@@ -502,6 +539,92 @@
           popupOverlay.addEventListener("click", function (event) {
             if (event.target === popupOverlay) {
               closePopup();
+            }
+          });
+        }
+
+        // --- BAGIAN 4: LOGIKA POPUP APP DETAIL UNTUK MOBILE ---
+        const appPopupOverlay = document.getElementById("app-popup-overlay");
+        const appPopupCloseBtn = document.getElementById("app-popup-close-btn");
+        const appPopupIcon = document.getElementById("app-popup-icon");
+        const appPopupTitle = document.getElementById("app-popup-title");
+        const appPopupDescription = document.getElementById(
+          "app-popup-description"
+        );
+        const appPopupActionBtn = document.getElementById(
+          "app-popup-action-btn"
+        );
+
+        let currentAppHref = "#"; // Store the current app's href
+
+        // Fungsi untuk membuka popup app detail
+        function openAppPopup(card) {
+          const iconSrc = card.querySelector(".app-logo-placeholder").src;
+          const title = card.querySelector(".app-info h3").textContent;
+          const description = card.querySelector(".app-info p").textContent;
+          const statusElement = card.querySelector(".app-status");
+          const isOpen = statusElement.classList.contains("status-open");
+          const actionText = isOpen ? "Buka" : "Segera Hadir";
+
+          // Store the href from the app status link
+          currentAppHref = statusElement.href || "#";
+
+          appPopupIcon.src = iconSrc;
+          appPopupTitle.textContent = title;
+          appPopupDescription.textContent = description;
+          appPopupActionBtn.textContent = actionText;
+
+          if (isOpen) {
+            appPopupActionBtn.classList.remove("disabled");
+            appPopupActionBtn.disabled = false;
+          } else {
+            appPopupActionBtn.classList.add("disabled");
+            appPopupActionBtn.disabled = true;
+          }
+
+          appPopupOverlay.classList.add("active");
+        }
+
+        // Fungsi untuk menutup popup app detail
+        function closeAppPopup() {
+          appPopupOverlay.classList.remove("active");
+        }
+
+        // Event listener untuk card app (hanya di mobile)
+        const appCardsPopup = document.querySelectorAll(".app-card");
+        appCardsPopup.forEach((card) => {
+          card.addEventListener("click", function (event) {
+            // Cek jika layar mobile (< 768px)
+            if (window.innerWidth < 768) {
+              event.preventDefault();
+              openAppPopup(this);
+            }
+          });
+        });
+
+        // Event listener untuk tombol close popup
+        if (appPopupCloseBtn) {
+          appPopupCloseBtn.addEventListener("click", closeAppPopup);
+        }
+
+        // Tutup popup saat klik overlay
+        if (appPopupOverlay) {
+          appPopupOverlay.addEventListener("click", function (event) {
+            if (event.target === appPopupOverlay) {
+              closeAppPopup();
+            }
+          });
+        }
+
+        // Event listener untuk tombol aksi di popup
+        if (appPopupActionBtn) {
+          appPopupActionBtn.addEventListener("click", function () {
+            if (!this.disabled) {
+              // Navigate to the app's href in new tab (same as desktop behavior)
+              if (currentAppHref && currentAppHref !== "#") {
+                window.open(currentAppHref, "_blank");
+              }
+              closeAppPopup();
             }
           });
         }
