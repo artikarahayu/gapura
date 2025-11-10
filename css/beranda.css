@@ -750,9 +750,9 @@
 
 /* Wrapper untuk Ikon App */
 .app-popup-icon-wrapper {
-    width: 80px;
-    height: 80px;
-    border-radius: 16px;
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -764,7 +764,7 @@
 .app-popup-icon-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 /* Konten di dalam modal */
