@@ -36,6 +36,7 @@
     color: #555;
     max-width: 520px;
     line-height: 1.6;
+    margin-bottom: 90px;
 }
 
 /* Dekorasi Lingkaran Oranye & Logo */
@@ -483,7 +484,7 @@
         overflow-x: auto;
         flex-wrap: nowrap;
         justify-content: flex-start;
-        margin-top: 20px;
+        margin-top: -90px;
         padding-left: 15px;
         padding-right: 15px;
         -ms-overflow-style: none;
