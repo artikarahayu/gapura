@@ -19,7 +19,6 @@
   </head>
 
   <body>
-    <!-- Header -->
     <header class="navbar">
       <div class="logo">
         <img
@@ -27,7 +26,6 @@
           alt="Logo Gapura Emas"
           class="logo-image"
         />
-        <!-- [PERBAIKAN] Diubah ke H1 agar konsisten dengan global.css -->
         <h1>GAPURA<span class="orange">EMAS</span></h1>
       </div>
       <nav>
@@ -74,27 +72,10 @@
           <span class="notification-dot"></span>
           <p class="notification-text">Akun anda terblokir</p>
         </a>
-        <a href="#" class="notification-item unread">
-          <span class="notification-dot"></span>
-          <p class="notification-text">
-            Anda mendapatkan izin akses masuk Sepakat Kabupaten Pasuruan
-          </p>
-        </a>
-        <a href="#" class="notification-item">
-          <span class="notification-dot"></span>
-          <p class="notification-text">Password anda berhasil diubah.</p>
-        </a>
-      </div>
-      <div class="notification-footer">
-        <button class="btn btn-secondary" id="clear-notifications">
-          Bersihkan semua notifikasi
-        </button>
       </div>
     </div>
 
-    <!-- <main> -->
     <main>
-      <!-- Hero Section -->
       <section class="hero">
         <div class="container hero-container">
           <div class="hero-text">
@@ -111,7 +92,6 @@
         </div>
       </section>
 
-      <!-- Banner -->
       <section class="banner-section">
         <div class="banner">
           <img src="assets/banner.jpg" alt="Banner 1" />
@@ -124,7 +104,6 @@
         </div>
       </section>
 
-      <!-- App Section -->
       <section class="app-section container">
         <div class="app-navigation">
           <div class="app-tabs">
@@ -138,7 +117,6 @@
         </div>
 
         <div class="app-grid">
-          <!-- (Contoh Kartu) -->
           <div class="app-card">
             <div class="card-main">
               <img
@@ -320,21 +298,17 @@
             </div>
             <a href="#" class="app-status status-soon">Segera Hadir</a>
           </div>
-          <!-- (Tambahkan kartu lainnya di sini) -->
         </div>
       </section>
     </main>
 
-    <!-- Popup Notifikasi Modern Glass Alert -->
     <div id="popup-overlay" class="popup-overlay">
       <div class="popup-modal">
         <div class="popup-icon-wrapper">
           <i class="fas fa-exclamation-triangle"></i>
         </div>
-
         <div class="popup-content">
           <h3 class="popup-title"><strong>Pemberitahuan Penting!!</strong></h3>
-
           <div class="popup-body">
             <p>
               Sehubungan dengan adanya perubahan mekanisme pada perusahaan yang
@@ -348,7 +322,6 @@
             </p>
           </div>
         </div>
-
         <div class="popup-footer">
           <button class="btn-primary-popup" id="popup-understand-btn">
             Saya Mengerti
@@ -357,7 +330,6 @@
       </div>
     </div>
 
-    <!-- Popup App Detail untuk Mobile -->
     <div id="app-popup-overlay" class="app-popup-overlay">
       <div class="app-popup-modal">
         <button class="app-popup-close-btn" id="app-popup-close-btn">
@@ -421,13 +393,58 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // --- [BARU] FUNGSI HELPER UNTUK LAST ACCESS ---
+
+        // Helper 1: Menambahkan '0' di depan angka < 10
+        function padZero(num) {
+          return num < 10 ? "0" + num : num;
+        }
+
+        // Helper 2: Format tanggal ke DD.MM.YYYY HH:MM
+        function formatDateForDisplay(dateObj) {
+          const day = padZero(dateObj.getDate());
+          const month = padZero(dateObj.getMonth() + 1); // Month is 0-indexed
+          const year = dateObj.getFullYear();
+          const hours = padZero(dateObj.getHours());
+          const minutes = padZero(dateObj.getMinutes());
+          // Format sesuai permintaan: DD.MM.YYYY HH:MM
+          return `<b>Akses</b>: ${day}-${month}-${year} ${hours}:${minutes}`;
+        }
+
+        // Helper 3: Update UI di kartu spesifik SECARA INSTAN
+        function updateAccessTimeUI(card, dateObj) {
+          if (!card) return;
+          const lastAccessElement = card.querySelector(".last-access-text");
+          if (lastAccessElement) {
+            lastAccessElement.innerHTML = formatDateForDisplay(dateObj);
+          }
+        }
+
+        // Helper 4: Menyimpan waktu ke localStorage DAN update UI
+        function saveAccessTime(appName, card) {
+          // Terima 'card'
+          try {
+            if (!appName) return;
+            const accessTimes =
+              JSON.parse(localStorage.getItem("appAccessTimes")) || {};
+
+            const now = new Date(); // Waktu saat ini
+            accessTimes[appName] = now.toISOString();
+            localStorage.setItem("appAccessTimes", JSON.stringify(accessTimes));
+
+            // [PERMINTAAN BARU] Panggil update UI instan
+            updateAccessTimeUI(card, now);
+          } catch (e) {
+            console.error("Gagal menyimpan waktu akses:", e);
+          }
+        }
+
         // --- BAGIAN 1: LOGIKA TAB APLIKASI ---
         const tabLinks = document.querySelectorAll(".tab-link");
         const appCards = document.querySelectorAll(".app-card");
         if (tabLinks.length > 0 && appCards.length > 0) {
           tabLinks.forEach((tab) => {
             tab.addEventListener("click", function () {
-              // ... (logika tab) ...
               tabLinks.forEach((t) => t.classList.remove("active"));
               this.classList.add("active");
               const tabText = this.textContent.trim();
@@ -453,10 +470,9 @@
         const notifIcon = document.querySelector(".notification-icon");
         const notifPanel = document.getElementById("notification-panel");
         const notifCloseBtn = document.getElementById("notification-close-btn");
-
         const userIconBtn = document.getElementById("user-icon-btn");
         const profileDropdown = document.getElementById("profile-dropdown");
-        const profileCloseBtn = document.getElementById("profile-close-btn"); // [BARU]
+        const profileCloseBtn = document.getElementById("profile-close-btn");
 
         if (
           notifIcon &&
@@ -466,31 +482,23 @@
           profileDropdown &&
           profileCloseBtn
         ) {
-          // 1. Klik Lonceng
+          // ... (logika dropdown Anda) ...
           notifIcon.addEventListener("click", function (event) {
             event.stopPropagation();
             notifPanel.classList.toggle("active");
             profileDropdown.classList.remove("active");
           });
-
-          // 2. Klik Tombol 'X' Notifikasi
           notifCloseBtn.addEventListener("click", function () {
             notifPanel.classList.remove("active");
           });
-
-          // 3. Klik Ikon Profil
           userIconBtn.addEventListener("click", function (event) {
             event.stopPropagation();
             profileDropdown.classList.toggle("active");
-            notifPanel.classList.remove("active"); // Tutup notifikasi
+            notifPanel.classList.remove("active");
           });
-
-          // 4. Klik Tombol 'X' Profil
           profileCloseBtn.addEventListener("click", function () {
             profileDropdown.classList.remove("active");
           });
-
-          // 5. Klik di Luar Panel
           document.addEventListener("click", function (event) {
             if (
               notifPanel.classList.contains("active") &&
@@ -509,31 +517,27 @@
           });
         }
 
+        // --- BAGIAN 3: LOGIKA POPUP PEMBERITAHUAN ---
         const popupOverlay = document.getElementById("popup-overlay");
         const closeBtnUnderstand = document.getElementById(
           "popup-understand-btn"
         );
 
-        // Fungsi untuk menutup popup
         function closePopup() {
           if (popupOverlay) {
             popupOverlay.classList.remove("active");
           }
         }
-
         if (popupOverlay && closeBtnUnderstand) {
+          // ... (logika popup notifikasi Anda) ...
           const popupShown = sessionStorage.getItem("popupShown");
-
           if (!popupShown) {
             setTimeout(() => {
               popupOverlay.classList.add("active");
               sessionStorage.setItem("popupShown", "true");
             }, 1000);
           }
-
           closeBtnUnderstand.addEventListener("click", closePopup);
-
-          // Tutup popup saat klik overlay (di luar modal)
           popupOverlay.addEventListener("click", function (event) {
             if (event.target === popupOverlay) {
               closePopup();
@@ -541,7 +545,45 @@
           });
         }
 
-        // --- BAGIAN 4: LOGIKA POPUP APP DETAIL UNTUK MOBILE ---
+        // --- BAGIAN 4: LOGIKA MENAMPILKAN LAST ACCESS (DI DALAM APP-CARD) ---
+        try {
+          const accessTimes =
+            JSON.parse(localStorage.getItem("appAccessTimes")) || {};
+          const allAppCards = document.querySelectorAll(".app-card");
+
+          allAppCards.forEach((card) => {
+            const button = card.querySelector(".app-status.status-open");
+            const appNameElement = card.querySelector(".app-info h3");
+
+            if (button && appNameElement) {
+              const appName = appNameElement.textContent.trim();
+              const lastAccessString = accessTimes[appName];
+
+              let formattedText;
+              if (lastAccessString) {
+                const lastAccessDate = new Date(lastAccessString);
+                // [PERMINTAAN BARU] Gunakan format DD.MM.YYYY HH:MM
+                formattedText = formatDateForDisplay(lastAccessDate);
+              } else {
+                formattedText = "<i>Belum pernah dibuka</i>";
+              }
+
+              const footer = document.createElement("div");
+              footer.className = "app-card-footer";
+              const lastAccessElement = document.createElement("p");
+              lastAccessElement.className = "last-access-text";
+              lastAccessElement.innerHTML = formattedText;
+
+              footer.appendChild(lastAccessElement);
+              footer.appendChild(button);
+              card.appendChild(footer);
+            }
+          });
+        } catch (e) {
+          console.error("Gagal menampilkan Last Access (App Card):", e);
+        }
+
+        // --- BAGIAN 5: LOGIKA POPUP APP DETAIL UNTUK MOBILE ---
         const appPopupOverlay = document.getElementById("app-popup-overlay");
         const appPopupCloseBtn = document.getElementById("app-popup-close-btn");
         const appPopupIcon = document.getElementById("app-popup-icon");
@@ -553,19 +595,24 @@
           "app-popup-action-btn"
         );
 
-        let currentAppHref = "#"; // Store the current app's href
+        let currentAppHref = "#";
+        let currentAppName = "";
+        let currentCard = null; // [BARU] Simpan elemen kartu yg aktif
 
-        // Fungsi untuk membuka popup app detail
         function openAppPopup(card) {
           const iconSrc = card.querySelector(".app-logo-placeholder").src;
           const title = card.querySelector(".app-info h3").textContent;
           const description = card.querySelector(".app-info p").textContent;
           const statusElement = card.querySelector(".app-status");
+
+          if (!statusElement) return; // Keamanan jika tidak ada status
+
           const isOpen = statusElement.classList.contains("status-open");
           const actionText = isOpen ? "Buka" : "Segera Hadir";
 
-          // Store the href from the app status link
           currentAppHref = statusElement.href || "#";
+          currentAppName = title.trim();
+          currentCard = card; // [BARU] Simpan kartu saat ini
 
           appPopupIcon.src = iconSrc;
           appPopupTitle.textContent = title;
@@ -583,29 +630,26 @@
           appPopupOverlay.classList.add("active");
         }
 
-        // Fungsi untuk menutup popup app detail
         function closeAppPopup() {
           appPopupOverlay.classList.remove("active");
+          currentCard = null; // Hapus referensi kartu
         }
 
-        // Event listener untuk card app (hanya di mobile)
         const appCardsPopup = document.querySelectorAll(".app-card");
         appCardsPopup.forEach((card) => {
           card.addEventListener("click", function (event) {
-            // Cek jika layar mobile (< 768px)
             if (window.innerWidth < 768) {
+              // [PERMINTAAN BARU] Popup akan selalu terbuka saat klik kartu
+              // karena tombol 'Buka' tersembunyi
               event.preventDefault();
               openAppPopup(this);
             }
           });
         });
 
-        // Event listener untuk tombol close popup
         if (appPopupCloseBtn) {
           appPopupCloseBtn.addEventListener("click", closeAppPopup);
         }
-
-        // Tutup popup saat klik overlay
         if (appPopupOverlay) {
           appPopupOverlay.addEventListener("click", function (event) {
             if (event.target === appPopupOverlay) {
@@ -614,17 +658,45 @@
           });
         }
 
-        // Event listener untuk tombol aksi di popup
         if (appPopupActionBtn) {
           appPopupActionBtn.addEventListener("click", function () {
             if (!this.disabled) {
-              // Navigate to the app's href in new tab (same as desktop behavior)
+              // [PERUBAHAN] Panggil saveAccessTime dengan 'currentCard'
+              saveAccessTime(currentAppName, currentCard);
+
               if (currentAppHref && currentAppHref !== "#") {
                 window.open(currentAppHref, "_blank");
               }
               closeAppPopup();
             }
           });
+        }
+
+        // --- BAGIAN 6: LOGIKA MENYIMPAN LAST ACCESS (SAAT KLIK DESKTOP) ---
+        try {
+          const openButtons = document.querySelectorAll(
+            ".app-status.status-open"
+          );
+
+          openButtons.forEach((button) => {
+            button.addEventListener("click", function (event) {
+              if (window.innerWidth >= 768) {
+                const card = button.closest(".app-card");
+                if (!card) return;
+
+                const appNameElement = card.querySelector(".app-info h3");
+                if (!appNameElement) return;
+
+                const appName = appNameElement.textContent.trim();
+
+                // [PERUBAHAN] Panggil saveAccessTime dengan 'card'
+                saveAccessTime(appName, card);
+                // Biarkan link <a> berjalan normal
+              }
+            });
+          });
+        } catch (e) {
+          console.error("Gagal menyimpan listener Last Access (Desktop):", e);
         }
       });
     </script>
