@@ -29,7 +29,7 @@
     color: #313131ff;
     max-width: 700px;
     line-height: 1.5;
-    margin-bottom: 90px;
+    margin-bottom: 115px;
 }
 
 /* Dekorasi Lingkaran Oranye & Logo */
@@ -342,9 +342,6 @@
 @media (max-width: 992px) {
 
     /* -- Hero -- */
-    .hero-text h2 {
-        font-size: 48px;
-    }
 
     .hero-text p {
         font-size: 1.1rem;
@@ -391,14 +388,10 @@
         align-items: flex-start;
     }
 
-    .hero-text h2 {
-        font-size: 1.3rem;
-        margin-bottom: 5px;
-    }
-
     .hero-text p {
         font-size: 1rem;
         line-height: 1.5;
+        padding-right: 30px;
     }
 
     .orange-circle {
