@@ -468,6 +468,10 @@
         align-self: stretch; /* [TAMBAH] Pastikan button memenuhi lebar card */
     }
 
+    .app-status {
+        display: none;
+    }
+
     .app-status.status-soon {
         padding: 4px 8px;
         background-color: transparent;
