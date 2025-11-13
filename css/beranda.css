@@ -228,7 +228,6 @@
 .card-main {
     display: flex;
     align-items: center;
-    /* [PERUBAHAN] Hapus margin-bottom agar justify-content berfungsi */
 }
 
 .app-info {
@@ -240,8 +239,7 @@
     font-weight: 600;
     color: var(--text-dark);
     margin-bottom: 3px;
-    /* [PERUBAHAN] Teks H3 tidak lagi di tengah */
-    text-align: left;
+    text-align: center;
 }
 
 .app-info p {
@@ -271,7 +269,6 @@
     width: fit-content;
     display: block;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    /* [PERUBAHAN] Tambah margin-top untuk tombol "Segera Hadir" */
     margin-top: 15px;
 }
 
@@ -311,12 +308,10 @@
     flex-shrink: 0;
     width: auto;
     margin-top: 0;
-    /* [PENTING] Hapus margin-top bawaan */
 }
 
 .last-access-text {
     font-size: 0.75rem;
-    /* 12px */
     color: var(--text-grey);
     margin: 0;
     font-weight: 400;
@@ -340,12 +335,12 @@
 
 /* Tablet ( < 992px ) */
 @media (max-width: 992px) {
-
     /* -- Hero -- */
 
     .hero-text p {
         font-size: 1.1rem;
         max-width: 100%;
+        padding-right: 20px;
     }
 
     .orange-circle {
@@ -360,6 +355,39 @@
         right: -20px;
     }
 
+    /* -- Banner -- */
+    .banner img {
+        width: 30vw;
+    }
+
+    /* -- [PERUBAHAN] App Nav ditata di sini -- */
+    .app-navigation {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .app-tabs {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 0;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+
+    .app-tabs .tab-link {
+        flex-shrink: 0;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
     /* -- App Grid -- */
     .app-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -370,9 +398,26 @@
         height: 100px;
     }
 
-    /* -- Banner -- */
-    .banner img {
-        width: 30vw;
+    /* Aturan Last Access & Tombol (Tablet + Mobile) */
+    .app-status {
+        display: none !important;
+    }
+
+    .app-card-footer {
+        text-align: center;
+        margin-top: 10px;
+        align-self: stretch;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .last-access-text {
+        text-align: center;
+        white-space: normal;
+    }
+
+    .app-card-footer .app-status {
+        display: none !important;
     }
 }
 
@@ -412,33 +457,7 @@
         padding-top: 20px;
     }
 
-    /* -- App Nav -- */
-    .app-navigation {
-        flex-direction: column-reverse;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 25px;
-    }
-
-    .app-tabs {
-        display: flex;
-        justify-content: flex-start;
-        margin-bottom: 0;
-        overflow-x: auto;
-        padding-bottom: 5px;
-    }
-
-    .app-tabs .tab-link {
-        flex-shrink: 0;
-    }
-
-    .search-bar {
-        width: 100%;
-    }
-
-    .search-bar input {
-        width: 100%;
-    }
+    /* -- [DIHAPUS] Aturan App Nav dipindahkan ke blok 992px -- */
 
     /* -- App Grid -- */
     .app-grid {
@@ -453,7 +472,6 @@
         align-items: center;
         text-align: center;
         justify-content: space-between;
-        /* [PERUBAHAN] Ganti height: 180px menjadi min-height */
         min-height: 180px;
         height: auto;
     }
@@ -484,35 +502,10 @@
         font-weight: 600;
         margin-bottom: 2px;
         text-align: center;
-        /* [PERUBAHAN] Kembalikan ke tengah di mobile */
     }
 
     .app-info p {
         display: none;
-    }
-
-    .app-status {
-        /* [PERMINTAAN BARU] Sembunyikan SEMUA tombol di mobile */
-        display: none !important;
-    }
-
-    /* Style mobile untuk footer card (last access + tombol) */
-    .app-card-footer {
-        /* [PERUBAHAN] Tidak lagi column, hanya center-kan teks */
-        text-align: center;
-        margin-top: 10px;
-        align-self: stretch;
-        width: 100%;
-    }
-
-    .last-access-text {
-        text-align: center;
-        white-space: normal;
-    }
-
-    /* [PERMINTAAN BARU] Pastikan tombol di dalam footer juga tersembunyi */
-    .app-card-footer .app-status {
-        display: none !important;
     }
 
     /* -- Banner (Geser Kanan-Kiri) -- */
@@ -542,7 +535,6 @@
 }
 
 /* ======== DESAIN POPUP ======== */
-/* (Kode popup notifikasi Anda... tetap sama) */
 .popup-overlay {
     position: fixed;
     inset: 0;
@@ -720,7 +712,6 @@
 }
 
 /* ======== DESAIN POPUP APP DETAIL UNTUK MOBILE ======== */
-/* (Kode popup app detail Anda... tetap sama) */
 .app-popup-overlay {
     position: fixed;
     inset: 0;
@@ -729,7 +720,6 @@
     justify-content: center;
     align-items: center;
     z-index: 10001;
-    /* Lebih tinggi dari popup notifikasi */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
