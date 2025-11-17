@@ -40,18 +40,27 @@
 
 .orange-circle {
     position: absolute;
-    right: -200px;
-    top: -150px;
-    width: 550px;
-    height: 550px;
-    background-color: var(--primary-orange);
+    right: -190px;
+    top: -190px;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
     z-index: 1;
+
+    background: conic-gradient(#ffb07a 0%,
+            #ff9550 25%,
+            #ff7a35 50%,
+            #ff9550 75%,
+            #ffb07a 100%);
+
+    border: 8px solid #fff5eb;
+    box-shadow: 0px 0px 0px 6px #ffe3cc inset;
 }
 
 .hero-image .logo-pasuruan {
     position: relative;
     z-index: 2;
+    top: -40px;
     right: -40px;
     width: 220px;
     height: auto;
@@ -344,10 +353,10 @@
     }
 
     .orange-circle {
-        width: 400px;
-        height: 400px;
-        right: -150px;
-        top: -100px;
+        width: 380px;
+        height: 380px;
+        right: -140px;
+        top: -115px;
     }
 
     .hero-image .logo-pasuruan {
@@ -440,10 +449,10 @@
     }
 
     .orange-circle {
-        width: 210px;
-        height: 210px;
-        top: -75px;
-        right: -80px;
+        width: 215px;
+        height: 215px;
+        right: -75px;
+        top: -70px;
     }
 
     .hero-image .logo-pasuruan {
@@ -860,4 +869,5 @@
         padding: 10px 25px;
         font-size: 0.9rem;
     }
+    
 }

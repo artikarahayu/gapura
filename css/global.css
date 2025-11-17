@@ -461,12 +461,12 @@ main {
     }
 
     .user-info {
-        gap: 10px;
+        gap: 15px;
     }
 
     .notification-icon,
     .user-icon {
-        font-size: 20px;
+        font-size: 23px;
     }
 
     .container {

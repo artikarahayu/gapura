@@ -70,14 +70,8 @@
       <div class="notification-list">
         <a href="#" class="notification-item unread">
           <span class="notification-dot"></span>
-          <p class="notification-text">Akun anda terblokir</p>
-        </a>
-        <a href="#" class="notification-item unread">
-          <span class="notification-dot"></span>
-          <p class="notification-text">
-            Anda mendapatkan izin akses masuk Sepakat Kabupaten Pasuruan
-          </p>
-        </a>
+          ></a
+        >
       </div>
       <div class="notification-footer">
         <button class="btn btn-secondary" id="clear-notifications">
@@ -494,30 +488,27 @@
           }
         };
 
-        // ====== BAGIAN 1: TAB FILTER ======
+        // ====== TAB FILTER ======
         const tabLinks = document.querySelectorAll(".tab-link");
         const appCards = document.querySelectorAll(".app-card");
-        if (tabLinks.length && appCards.length) {
-          tabLinks.forEach((tab) => {
-            tab.addEventListener("click", function () {
-              tabLinks.forEach((t) => t.classList.remove("active"));
-              this.classList.add("active");
-
-              const tabText = this.textContent.trim();
-              appCards.forEach((card) => {
-                const status = card.querySelector(".app-status");
-                const isOpen = status?.classList.contains("status-open");
-                card.style.display =
-                  tabText === "Semua Aplikasi" ||
-                  (tabText === "Terbaru" && isOpen)
-                    ? "flex"
-                    : "none";
-              });
+        tabLinks.forEach((tab) => {
+          tab.addEventListener("click", function () {
+            tabLinks.forEach((t) => t.classList.remove("active"));
+            this.classList.add("active");
+            const tabText = this.textContent.trim();
+            appCards.forEach((card) => {
+              const status = card.querySelector(".app-status");
+              const isOpen = status?.classList.contains("status-open");
+              card.style.display =
+                tabText === "Semua Aplikasi" ||
+                (tabText === "Terbaru" && isOpen)
+                  ? "flex"
+                  : "none";
             });
           });
-        }
+        });
 
-        // ====== BAGIAN 2: DROPDOWN NOTIFIKASI & PROFIL ======
+        // ====== NOTIFIKASI & PROFIL ======
         const notifIcon = document.querySelector(".notification-icon");
         const notifPanel = document.getElementById("notification-panel");
         const notifCloseBtn = document.getElementById("notification-close-btn");
@@ -525,50 +516,38 @@
         const profileDropdown = document.getElementById("profile-dropdown");
         const profileCloseBtn = document.getElementById("profile-close-btn");
 
-        if (
-          notifIcon &&
-          notifPanel &&
-          notifCloseBtn &&
-          userIconBtn &&
-          profileDropdown &&
-          profileCloseBtn
-        ) {
-          notifIcon.addEventListener("click", (e) => {
-            e.stopPropagation();
-            notifPanel.classList.toggle("active");
-            profileDropdown.classList.remove("active");
-          });
+        notifIcon?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          notifPanel.classList.toggle("active");
+          profileDropdown.classList.remove("active");
+        });
+        notifCloseBtn?.addEventListener("click", () =>
+          notifPanel.classList.remove("active")
+        );
+        userIconBtn?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          profileDropdown.classList.toggle("active");
+          notifPanel.classList.remove("active");
+        });
+        profileCloseBtn?.addEventListener("click", () =>
+          profileDropdown.classList.remove("active")
+        );
 
-          notifCloseBtn.addEventListener("click", () =>
-            notifPanel.classList.remove("active")
-          );
-          userIconBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            profileDropdown.classList.toggle("active");
+        document.addEventListener("click", (e) => {
+          if (!notifPanel.contains(e.target) && !notifIcon.contains(e.target))
             notifPanel.classList.remove("active");
-          });
+          if (
+            !profileDropdown.contains(e.target) &&
+            !userIconBtn.contains(e.target)
+          )
+            profileDropdown.classList.remove("active");
+        });
 
-          profileCloseBtn.addEventListener("click", () =>
-            profileDropdown.classList.remove("active")
-          );
-
-          document.addEventListener("click", (e) => {
-            if (!notifPanel.contains(e.target) && !notifIcon.contains(e.target))
-              notifPanel.classList.remove("active");
-            if (
-              !profileDropdown.contains(e.target) &&
-              !userIconBtn.contains(e.target)
-            )
-              profileDropdown.classList.remove("active");
-          });
-        }
-
-        // ====== BAGIAN 3: POPUP PEMBERITAHUAN ======
+        // ====== POPUP PEMBERITAHUAN ======
         const popupOverlay = document.getElementById("popup-overlay");
         const closeBtnUnderstand = document.getElementById(
           "popup-understand-btn"
         );
-
         if (popupOverlay && closeBtnUnderstand) {
           const closePopup = () => popupOverlay.classList.remove("active");
           if (!sessionStorage.getItem("popupShown")) {
@@ -583,7 +562,7 @@
           });
         }
 
-        // ====== BAGIAN 4: LAST ACCESS DISPLAY ======
+        // ====== LAST ACCESS DISPLAY ======
         try {
           const accessTimes =
             JSON.parse(localStorage.getItem("appAccessTimes")) || {};
@@ -625,7 +604,7 @@
           console.error("Gagal menampilkan Last Access:", err);
         }
 
-        // ====== BAGIAN 5: POPUP APP DETAIL (MOBILE) ======
+        // ====== POPUP APP DETAIL (MOBILE) ======
         const appPopupOverlay = document.getElementById("app-popup-overlay");
         const appPopupCloseBtn = document.getElementById("app-popup-close-btn");
         const appPopupIcon = document.getElementById("app-popup-icon");
@@ -684,13 +663,14 @@
         appPopupActionBtn?.addEventListener("click", function () {
           if (!this.disabled && currentCard) {
             saveAccessTime(currentAppName, currentCard);
+            addNotification(currentAppName);
             if (currentAppHref && currentAppHref !== "#")
               window.open(currentAppHref, "_blank");
             closeAppPopup();
           }
         });
 
-        // ====== BAGIAN 6: LAST ACCESS (DESKTOP) ======
+        // ====== LAST ACCESS (DESKTOP) ======
         document.querySelectorAll(".app-status.status-open").forEach((btn) => {
           btn.addEventListener("click", function () {
             if (window.innerWidth >= 768) {
@@ -698,31 +678,80 @@
               const appName = card
                 ?.querySelector(".app-info h3")
                 ?.textContent?.trim();
-              if (appName) saveAccessTime(appName, card);
+              if (appName) {
+                saveAccessTime(appName, card);
+                addNotification(appName);
+              }
             }
           });
         });
 
-        // ====== BAGIAN 7: HAPUS NOTIFIKASI ======
+        // ====== HAPUS & RENDER NOTIFIKASI ======
         const clearBtn = document.getElementById("clear-notifications");
         const notifList = document.querySelector(".notification-list");
 
-        if (clearBtn && notifList && notifPanel) {
-          clearBtn.addEventListener("click", function () {
-            notifList.innerHTML = "";
+        function renderNotifications() {
+          const saved = JSON.parse(localStorage.getItem("notifikasiApp")) || [];
+          notifList.innerHTML = "";
+
+          if (saved.length === 0) {
             const empty = document.createElement("p");
             empty.style.padding = "15px 20px";
             empty.style.textAlign = "center";
             empty.style.color = "#777";
             empty.textContent = "Tidak ada notifikasi baru.";
             notifList.appendChild(empty);
-
-            this.textContent = "Bersih";
-            this.disabled = true;
-
-            setTimeout(() => notifPanel.classList.remove("active"), 1000);
-          });
+            clearBtn.disabled = true;
+            clearBtn.textContent = "Tidak ada notifikasi";
+          } else {
+            saved.forEach((n) => {
+              const item = document.createElement("a");
+              item.href = "#";
+              item.className = "notification-item";
+              item.innerHTML = `
+          <span class="notification-dot"></span>
+          <p class="notification-text">${n.text}</p>`;
+              notifList.appendChild(item);
+            });
+            clearBtn.disabled = false;
+            clearBtn.textContent = "Bersihkan semua notifikasi";
+          }
         }
+
+        renderNotifications();
+
+        clearBtn?.addEventListener("click", function () {
+          localStorage.removeItem("notifikasiApp");
+          renderNotifications();
+          setTimeout(() => notifPanel.classList.remove("active"), 1000);
+        });
+
+        // ====== TAMBAH NOTIFIKASI BARU ======
+        window.addNotification = function (appName) {
+          const date = new Date();
+          const waktu = `${date.getDate()}-${
+            date.getMonth() + 1
+          }-${date.getFullYear()} ${date
+            .getHours()
+            .toString()
+            .padStart(2, "0")}:${date
+            .getMinutes()
+            .toString()
+            .padStart(2, "0")}`;
+          const textContent = `Akses ${appName} pada ${waktu}`;
+
+          const saved = JSON.parse(localStorage.getItem("notifikasiApp")) || [];
+          saved.unshift({ appName, waktu, text: textContent });
+          localStorage.setItem("notifikasiApp", JSON.stringify(saved));
+
+          renderNotifications();
+
+          const notifPanel = document.getElementById("notification-panel");
+          if (notifPanel) {
+            notifPanel.classList.add("active");
+            setTimeout(() => notifPanel.classList.remove("active"), 4000);
+          }
+        };
       });
     </script>
   </body>
